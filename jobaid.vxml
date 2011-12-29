@@ -8,28 +8,28 @@
 
     <form id="job_aid">
 
-        <grammar mode="dtmf" version="1.0" root="root">
-            <rule id="root" scope="public">
-         <one-of>
-           <item> 0 </item>
-           <item> 1 </item>
-           <item> 2 </item>
-           <item> 3 </item>
-           <item> 4 </item>
-           <item> 5 </item>
-           <item> 6 </item>
-           <item> 7 </item>
-           <item> 8 </item>
-           <item> 9 </item>
-         </one-of>
-        </rule>
-        </grammar>
-
         <block name="welcome">
             Welcome to Job Aid
         </block>
 
         <field name="level_selection">
+            <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root" scope="public">
+             <one-of>
+               <item> 0 </item>
+               <item> 1 </item>
+               <item> 2 </item>
+               <item> 3 </item>
+               <item> 4 </item>
+               <item> 5 </item>
+               <item> 6 </item>
+               <item> 7 </item>
+               <item> 8 </item>
+               <item> 9 </item>
+             </one-of>
+            </rule>
+            </grammar>
+
             <prompt>Select level.</prompt>
             <!--Validation-->
             <filled>
@@ -43,6 +43,23 @@
         </block>
 
         <field name="chapter_selection">
+            <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root" scope="public">
+             <one-of>
+               <item> 0 </item>
+               <item> 1 </item>
+               <item> 2 </item>
+               <item> 3 </item>
+               <item> 4 </item>
+               <item> 5 </item>
+               <item> 6 </item>
+               <item> 7 </item>
+               <item> 8 </item>
+               <item> 9 </item>
+             </one-of>
+            </rule>
+            </grammar>
+
             <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
             <!--Validation-->
             <filled>
