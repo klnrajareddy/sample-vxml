@@ -3,30 +3,65 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
 
-    <script>
-        var noOfLevels = 3;
-        var levelSelected = 0;
-    </script>
+    <!--<script>-->
+        <!--var noOfLevels = 3;-->
+        <!--var levelSelected = 0;-->
+    <!--</script>-->
 
-    <form id="job_aid">
-        <block name="welcome">
-            Welcome to Job Aid
-        </block>
+    <form id="guessNumber">
+      <field name="guess">
 
-        <field id="levelSelection">
+       <grammar type="text/gsl">
+         [dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]
+       </grammar>
 
-            <grammar type="text/gsl">
-              [dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]
-            </grammar>
+        <prompt>
+          Guess what the computer is thinking! Pick a number between 0 and 9.
+        </prompt>
 
-            <prompt>Select level.</prompt>
+        <noinput>
+         <prompt>
+          I did not hear you. Please try again.
+         </prompt>
+         <reprompt/>
+        </noinput>
+
+        <nomatch>
+         <prompt>
+          Is that a number? Please try again.
+         </prompt>
+         <reprompt/>
+        </nomatch>
+
+      </field>
+      <filled namelist="guess" mode="all">
+        <prompt>
+          You said <value expr="guess" /> Your brain is enormous.
+        </prompt>
+        <goto next="#playAgain" />
+      </filled>
+    </form>
 
 
-        </field>
+    <!--<form id="job_aid">-->
+        <!--<block name="welcome">-->
+            <!--Welcome to Job Aid-->
+        <!--</block>-->
 
-        <filled>
-            <prompt>You entered <value expr="levelSelection"/></prompt>
-        </filled>
+        <!--<field id="levelSelection">-->
+
+            <!--<grammar type="text/gsl">-->
+              <!--[dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]-->
+            <!--</grammar>-->
+
+            <!--<prompt>Select level.</prompt>-->
+
+
+        <!--</field>-->
+
+        <!--<filled>-->
+            <!--<prompt>You entered <value expr="levelSelection"/></prompt>-->
+        <!--</filled>-->
 
         <!--<block name="pressed_digit">-->
             <!--The level selected by you is: <value expr="levelSelected"/>-->
@@ -46,7 +81,7 @@
             <!--<choice next="http://www.stargazer.example.com/voice/astronews.vxml"> Level 3 </choice>-->
         <!--</menu>-->
 
-    </form>
+    <!--</form>-->
 </vxml>
 
 
