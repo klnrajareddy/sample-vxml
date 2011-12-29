@@ -7,29 +7,30 @@
     </script>
 
     <form id="job_aid">
+
+        <grammar mode="dtmf" version="1.0" root="root">
+            <rule id="root" scope="public">
+         <one-of>
+           <item> 0 </item>
+           <item> 1 </item>
+           <item> 2 </item>
+           <item> 3 </item>
+           <item> 4 </item>
+           <item> 5 </item>
+           <item> 6 </item>
+           <item> 7 </item>
+           <item> 8 </item>
+           <item> 9 </item>
+         </one-of>
+        </rule>
+        </grammar>
+
         <block name="welcome">
             Welcome to Job Aid
         </block>
 
         <field name="level_selection">
             <prompt>Select level.</prompt>
-            <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root" scope="public">
-             <one-of>
-                (dtmf-0 dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-7 dtmf-8 dtmf-9)
-               <!--<item> 0 </item>-->
-               <!--<item> 1 </item>-->
-               <!--<item> 2 </item>-->
-               <!--<item> 3 </item>-->
-               <!--<item> 4 </item>-->
-               <!--<item> 5 </item>-->
-               <!--<item> 6 </item>-->
-               <!--<item> 7 </item>-->
-               <!--<item> 8 </item>-->
-               <!--<item> 9 </item>-->
-             </one-of>
-            </rule>
-            </grammar>
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
@@ -43,22 +44,6 @@
 
         <field name="chapter_selection">
             <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
-            <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root" scope="public">
-             <one-of>
-                 <item> 0 </item>
-                 <item> 1 </item>
-                 <item> 2 </item>
-                 <item> 3 </item>
-                 <item> 4 </item>
-                 <item> 5 </item>
-                 <item> 6 </item>
-                 <item> 7 </item>
-                 <item> 8 </item>
-                 <item> 9 </item>
-             </one-of>
-            </rule>
-            </grammar>
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="chapter_selection"/></prompt>
