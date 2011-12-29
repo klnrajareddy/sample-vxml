@@ -13,10 +13,19 @@
             <prompt>Select level.</prompt>
             <grammar mode="dtmf" version="1.0">
                 <rule>
-             <one-of>
-               <item> 9 </item>
-             </one-of>
-            </rule>
+                 <one-of>
+                   <item> 0 </item>
+                   <item> 1 </item>
+                   <item> 2 </item>
+                   <item> 3 </item>
+                   <item> 4 </item>
+                   <item> 5 </item>
+                   <item> 6 </item>
+                   <item> 7 </item>
+                   <item> 8 </item>
+                   <item> 9 </item>
+                 </one-of>
+                </rule>
             </grammar>
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
