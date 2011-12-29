@@ -1,38 +1,44 @@
-<vxml version = "2.0">
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
 
-  <meta name="maintainer" content="YOUREMAILADDRESS@HERE.com"/>
 
+    <form id="job_aid">
+        <block name="welcome">
+            Welcome to Job Aid
+        </block>
 
-  <form id="guessNumber">
-    <field name="guess"> 
+        <field id="level_selection">
+            <prompt>Select level.</prompt>
+            <grammar mode="dtmf" version="1.0"
+                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                     xsi:schemaLocation="http://www.w3.org/2001/06/grammar
+                                         http://www.w3.org/TR/speech-grammar/grammar.xsd"
+                     xmlns="http://www.w3.org/2001/06/grammar">
 
-     <grammar type="text/gsl">
-       [dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]
-     </grammar>
-
-      <prompt>
-        Guess what the computer is thinking! Pick a number between 0 and 9.
-      </prompt>
-
-      <noinput>
-       <prompt>
-        I did not hear you. Please try again. 
-       </prompt>
-       <reprompt/>
-      </noinput>
-
-      <nomatch>
-       <prompt>
-        Is that a number? Please try again. 
-       </prompt>
-       <reprompt/>
-      </nomatch>
-
-    </field>
-    <filled namelist="guess" mode="all">
-      <prompt>
-        You said <value expr="guess" /> Your brain is enormous.
-      </prompt> 
-    </filled>
-  </form>
+            <rule id="digit">
+             <one-of>
+               <item> 0 </item>
+               <item> 1 </item>
+               <item> 2 </item>
+               <item> 3 </item>
+               <item> 4 </item>
+               <item> 5 </item>
+               <item> 6 </item>
+               <item> 7 </item>
+               <item> 8 </item>
+               <item> 9 </item>
+             </one-of>
+            </rule>
+            </grammar>
+        </field>
+        <filled>
+            <prompt>You entered <value expr="level_selection"/></prompt>
+        </filled>
+    </form>
 </vxml>
+
+
+
+
