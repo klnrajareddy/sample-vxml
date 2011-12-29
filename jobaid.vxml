@@ -32,7 +32,7 @@
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
-                <goto item="level_intro"/>
+                <goto nextitem="level_intro"/>
             </filled>
         </field>
 
