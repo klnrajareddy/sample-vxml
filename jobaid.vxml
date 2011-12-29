@@ -11,13 +11,8 @@
 
         <field id="level_selection">
             <prompt>Select level.</prompt>
-            <grammar mode="dtmf" version="1.0"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                     xsi:schemaLocation="http://www.w3.org/2001/06/grammar
-                                         http://www.w3.org/TR/speech-grammar/grammar.xsd"
-                     xmlns="http://www.w3.org/2001/06/grammar">
-
-            <rule id="digit">
+            <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root" scope="public">
              <one-of>
                <item> 0 </item>
                <item> 1 </item>
