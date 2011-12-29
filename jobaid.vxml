@@ -6,9 +6,9 @@
         var levelSelected = 0;
     </script>
 
-    <form id="job_aid" scope="document">
+    <form id="job_aid">
 
-        <grammar mode="dtmf" version="1.0" root="root" scope="document">
+        <grammar mode="dtmf" version="1.0" root="root" scope="dialog">
             <rule id="root" scope="public">
          <one-of>
            <item> 0 </item>
