@@ -22,7 +22,7 @@
             <prompt>Select level.</prompt>
 
             <filled>
-                You entered <value expr="level_selection"/>
+                <prompt>You entered <value expr="level_selection"/></prompt>
             </filled>
 
         </field>
