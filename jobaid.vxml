@@ -14,15 +14,19 @@
         </block>
 
         <field id="level_selection" >
+            <dtmf type="application/x-jsgf">
+                1|2|3|4|5|6|7|8|9|0
+            </dtmf>
             <prompt>You should select a level. You should select a level. You should select a level.You should select a level. You should select a level. You should select a level.</prompt>
+
             <filled>
-                <var name="levelSelected" expr="level_selection"/>
+                You entered <value expr="level_selection"/>
             </filled>
         </field>
 
-        <block name="pressed_digit">
-            The level selected by you is: <value expr="levelSelected"/>
-        </block>
+        <!--<block name="pressed_digit">-->
+            <!--The level selected by you is: <value expr="levelSelected"/>-->
+        <!--</block>-->
         <!--<menu dtmf="true">-->
             <!--<field name="level_selection">-->
                 <!--<prompt>-->
