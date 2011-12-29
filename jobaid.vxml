@@ -11,18 +11,19 @@
     <form id="job_aid">
         <block name="welcome">
             Welcome to Job Aid
-            <!--<script>-->
-               <!--levelSelected+=100;-->
-            <!--</script>-->
-            <!--The level now is <value expr="levelSelected"/>-->
         </block>
 
         <field id="level_selection" type="digits">
             <prompt>You should select a level. You should select a level. You should select a level.You should select a level. You should select a level. You should select a level.</prompt>
+            <filled>
+                <script>
+                    levelSelected = level_selection;
+                </script>
+            </filled>
         </field>
 
         <block name="pressed_digit">
-            The level selected by you is: <value expr="level_selection"/>
+            The level selected by you is: <value expr="levelSelected"/>
         </block>
         <!--<menu dtmf="true">-->
             <!--<field name="level_selection">-->
