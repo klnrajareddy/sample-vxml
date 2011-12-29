@@ -61,7 +61,7 @@
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="chapter_selection"/></prompt>
-                <prompt>You called from <value expr="session.callerId"/></prompt>
+                <prompt>You called from <value expr="session.callerid"/></prompt>
             </filled>
         </field>
     </form>
