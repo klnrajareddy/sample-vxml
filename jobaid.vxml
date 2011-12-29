@@ -13,15 +13,22 @@
             Welcome to Job Aid
         </block>
 
-        <field id="level_selection" >
-            <dtmf type="application/x-jsgf">
-                1|2|3|4|5|6|7|8|9|0
-            </dtmf>
-            <prompt>You should select a level. You should select a level. You should select a level.You should select a level. You should select a level. You should select a level.</prompt>
+        <field id="level_selection">
+
+            <grammar mode="dtmf" version="1.0" root="root">
+              <rule id="root" scope="public">
+                <one-of>
+                  <item> 1 2 3 </item>
+                </one-of>
+              </rule>
+            </grammar>
+
+            <prompt>Select level.</prompt>
 
             <filled>
                 You entered <value expr="level_selection"/>
             </filled>
+
         </field>
 
         <!--<block name="pressed_digit">-->
