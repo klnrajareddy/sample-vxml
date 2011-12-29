@@ -21,11 +21,12 @@
 
             <prompt>Select level.</prompt>
 
-            <filled>
-                <prompt>You entered <value expr="levelSelection"/></prompt>
-            </filled>
 
         </field>
+
+        <filled>
+            <prompt>You entered <value expr="levelSelection"/></prompt>
+        </filled>
 
         <!--<block name="pressed_digit">-->
             <!--The level selected by you is: <value expr="levelSelected"/>-->
