@@ -12,7 +12,7 @@
         <block name="welcome">
             Welcome to Job Aid
             <script>
-               levelSelected++;
+               levelSelected+=100;
             </script>
             The level now is <value expr="levelSelected"/>
         </block>
