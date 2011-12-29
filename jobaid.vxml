@@ -18,10 +18,10 @@
              </one-of>
             </rule>
             </grammar>
+            <filled>
+                <prompt>You entered <value expr="level_selection"/></prompt>
+            </filled>
         </field>
-        <filled>
-            <prompt>You entered <value expr="level_selection"/></prompt>
-        </filled>
     </form>
 </vxml>
 
