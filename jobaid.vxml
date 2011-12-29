@@ -16,10 +16,11 @@
 
             <prompt>Select level.</prompt>
 
-            <filled>
-                <prompt>You entered <value expr="levelSelection"/></prompt>
-            </filled>
         </field>
+
+        <filled namelist="levelSelection">
+            <prompt>You entered <value expr="levelSelection"/></prompt>
+        </filled>
 
     </form>
 </vxml>
