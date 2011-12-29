@@ -1,30 +1,38 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
+<vxml version = "2.1">
+
+  <meta name="maintainer" content="YOUREMAILADDRESS@HERE.com"/>
 
 
-    <form id="job_aid">
-        <block name="welcome">
-            Welcome to Job Aid
-        </block>
+  <form id="guessNumber">
+    <field name="guess"> 
 
-        <field id="levelSelection">
-            <grammar type="text/gsl">
-                [dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]
-            </grammar>
+     <grammar type="text/gsl">
+       [dtmf-1 dtmf-2 dtmf-3 dtmf-4 dtmf-5 dtmf-6 dtmf-6 dtmf-7 dtmf-8 dtmf-9 dtmf-0]
+     </grammar>
 
-            <prompt>Select level.</prompt>
+      <prompt>
+        Guess what the computer is thinking! Pick a number between 0 and 9.
+      </prompt>
 
-        </field>
+      <noinput>
+       <prompt>
+        I did not hear you. Please try again. 
+       </prompt>
+       <reprompt/>
+      </noinput>
 
-        <filled namelist="levelSelection">
-            <prompt>You entered <value expr="levelSelection"/></prompt>
-        </filled>
+      <nomatch>
+       <prompt>
+        Is that a number? Please try again. 
+       </prompt>
+       <reprompt/>
+      </nomatch>
 
-    </form>
+    </field>
+    <filled namelist="guess" mode="all">
+      <prompt>
+        You said <value expr="guess" /> Your brain is enormous.
+      </prompt> 
+    </filled>
+  </form>
 </vxml>
-
-
-
-
