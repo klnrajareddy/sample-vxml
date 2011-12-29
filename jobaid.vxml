@@ -13,12 +13,10 @@
             Welcome to Job Aid
         </block>
 
-        <field id="level_selection" type="digits">
+        <field id="level_selection" >
             <prompt>You should select a level. You should select a level. You should select a level.You should select a level. You should select a level. You should select a level.</prompt>
             <filled>
-                <script>
-                    levelSelected = level_selection;
-                </script>
+                <var name="levelSelected" expr="level_selection"/>
             </filled>
         </field>
 
