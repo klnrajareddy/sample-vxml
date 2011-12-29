@@ -11,8 +11,8 @@
 
         <field name="level_selection">
             <prompt>Select level.</prompt>
-            <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root" scope="public">
+            <grammar mode="dtmf" version="1.0">
+                <rule>
              <one-of>
                <item> 9 </item>
              </one-of>
