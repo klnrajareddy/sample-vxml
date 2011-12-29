@@ -5,13 +5,35 @@
 
     <script>
         var noOfLevels = 3;
+        var levelSelected = 0;
     </script>
 
     <form id="job_aid">
         <block name="welcome">
             Welcome to Job Aid
+            <script>
+               levelSelected++;
+            </script>
+            The level now is <value expr="levelSelected"/>
         </block>
+        <!--<menu dtmf="true">-->
+            <!--<field name="level_selection">-->
+                <!--<prompt>-->
+                    <!--Please select a level.-->
+    <!--&lt;!&ndash;                <enumerate>-->
+                        <!--For <value expr="_prompt"/>, press <value expr="_dtmf"/>.-->
+                    <!--</enumerate> &ndash;&gt;-->
+                <!--</prompt>-->
+            <!--</field>-->
+
+            <!--<choice next="http://www.sports.example.com/vxml/start.vxml"> Level 1 </choice>-->
+            <!--<choice next="http://www.weather.example.com/intro.vxml"> Level 2 </choice>-->
+            <!--<choice next="http://www.stargazer.example.com/voice/astronews.vxml"> Level 3 </choice>-->
+        <!--</menu>-->
 
     </form>
 </vxml>
+
+
+
 
