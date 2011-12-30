@@ -124,7 +124,10 @@
                 var promptContext = new PromptContext();
             </script>
 
-            <prompt><value expr="course.menu"></value></prompt>
+            <prompt>
+                <value expr="course.menu"></value>.
+                Current no input count is: <value expr="promptContext.noInputCount"/>
+            </prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
