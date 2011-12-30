@@ -79,6 +79,8 @@
                     ]}
             ]
         };
+
+
         var levelSelected = 0;
         var time_out=10;
         var next_item = "level_intro";
@@ -90,63 +92,61 @@
     <form id="job_aid">
 
         <block name="welcome">
-            <value expr="course.content"/>.
+            <value expr="course.introduction"/>.
             Number of levels are <value expr="course.levels.length"/>.
         </block>
 
-        <!--<field name="level_selection">-->
-            <!--<prompt>Select level.</prompt>-->
+        <field name="level_selection">
+            <prompt>course.levels.introduction</prompt>
 
-            <!--<grammar mode="dtmf" version="1.0" root="root">-->
-                <!--<rule id="root">-->
-                    <!--<one-of>-->
-                        <!--<foreach item="acceptedChar" array="levels">-->
-                            <!--<item><value expr="acceptedChar"/></item>-->
-                        <!--</foreach>-->
-                    <!--</one-of>-->
-                <!--</rule>-->
-              <!--</grammar>-->
-            <!--&lt;!&ndash;Validation&ndash;&gt;-->
-            <!--<noinput>-->
-                <!--<prompt> Please say something.</prompt>-->
-            <!--</noinput>-->
-            <!--<nomatch>-->
+            <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root">
+                    <one-of>
+                        <item>1 2 3</item>
+                    </one-of>
+                </rule>
+              </grammar>
+            <!--Validation-->
+            <noinput>
+                <prompt> Please say something.</prompt>
+            </noinput>
+            <nomatch>
 
-            <!--</nomatch>-->
-            <!--<filled>-->
-                <!--<prompt>You entered <value expr="level_selection"/></prompt>-->
-                <!--<goto expritem="next_item"/>-->
-            <!--</filled>-->
-        <!--</field>-->
+            </nomatch>
+            <filled>
+                <prompt>You entered <value expr="level_selection"/></prompt>
+                <goto expritem="next_item"/>
+            </filled>
+        </field>
 
-        <!--<block name="level_intro">-->
-            <!--This is an intro for level <value expr="level_selection"/>-->
-        <!--</block>-->
+        <block name="level_intro">
+            This is an intro for level <value expr="level_selection"/>
+        </block>
 
-        <!--<field name="chapter_selection">-->
-            <!--<prompt>Select chapter within level <value expr="level_selection"/>.</prompt>-->
-                   <!--<grammar mode="dtmf" version="1.0" root="root">-->
-                <!--<rule id="root">-->
-             <!--<one-of>-->
-               <!--<item> 0 </item>-->
-               <!--<item> 1 </item>-->
-               <!--<item> 2 </item>-->
-               <!--<item> 3 </item>-->
-               <!--<item> 4 </item>-->
-               <!--<item> 5 </item>-->
-               <!--<item> 6 </item>-->
-               <!--<item> 7 </item>-->
-               <!--<item> 8 </item>-->
-               <!--<item> 9 </item>-->
-             <!--</one-of>-->
-            <!--</rule>-->
-          <!--</grammar>-->
-            <!--&lt;!&ndash;Validation&ndash;&gt;-->
-            <!--<filled>-->
-                <!--<prompt>You entered <value expr="chapter_selection"/></prompt>-->
-                <!--<prompt>You called from <value expr="session.callerid"/></prompt>-->
-            <!--</filled>-->
-        <!--</field>-->
+        <field name="chapter_selection">
+            <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
+                   <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root">
+             <one-of>
+               <item> 0 </item>
+               <item> 1 </item>
+               <item> 2 </item>
+               <item> 3 </item>
+               <item> 4 </item>
+               <item> 5 </item>
+               <item> 6 </item>
+               <item> 7 </item>
+               <item> 8 </item>
+               <item> 9 </item>
+             </one-of>
+            </rule>
+          </grammar>
+            <!--Validation-->
+            <filled>
+                <prompt>You entered <value expr="chapter_selection"/></prompt>
+                <prompt>You called from <value expr="session.callerid"/></prompt>
+            </filled>
+        </field>
     </form>
 </vxml>
 
