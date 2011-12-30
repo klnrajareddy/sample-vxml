@@ -5,7 +5,9 @@
     <script>
         var levelSelected = 0;
     </script>
-       <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
+
+    <form id="job_aid">
+          <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
@@ -21,7 +23,6 @@
              </one-of>
             </rule>
           </grammar>
-    <form id="job_aid">
         <block name="welcome">
             Welcome to Job Aid
         </block>
