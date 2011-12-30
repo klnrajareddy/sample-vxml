@@ -155,7 +155,6 @@
                 </script>
                 <if cond="promptContext.noInputCount &lt; 3">
                     Did not hear from you for <value expr="promptContext.noInputCount"/> times.
-                    <goto nextitem="level_selection"/>
                 <else/>
                     Continuing with disconnect since did not hear from you for too long.
                     <disconnect/>
