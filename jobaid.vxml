@@ -118,7 +118,9 @@
 
     <form id="job_aid">
 
-        <audio src="./Hello.wav"/>
+        <block>
+            <audio src="./Hello.wav"/>
+        </block>
 
         <block name="welcome">
             <value expr="course.introduction"/>.
