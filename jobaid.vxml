@@ -17,7 +17,7 @@
 
         <field name="level_selection">
             <prompt>Select level.</prompt>
-                 <grammar scope="document" mode="dtmf" version="1.0" root="root">
+                 <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
@@ -46,7 +46,7 @@
 
         <field name="chapter_selection">
             <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
-                   <grammar scope="document" mode="dtmf" version="1.0" root="root">
+                   <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
