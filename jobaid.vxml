@@ -121,10 +121,7 @@
         <block>
             <prompt name="welcome" bargein="false">
                 <audio src="./Hello.wav"/>
-                <value expr="course.introduction"/>.
-                Number of levels are <value expr="course.levels.length"/>.
             </prompt>
-
         </block>
 
         <field name="level_selection">
