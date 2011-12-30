@@ -118,14 +118,11 @@
 
     <form id="job_aid">
 
-        <block>
+        <prompt name="welcome" bargein="false">
             <audio src="./Hello.wav"/>
-        </block>
-
-        <block name="welcome">
             <value expr="course.introduction"/>.
             Number of levels are <value expr="course.levels.length"/>.
-        </block>
+        </prompt>
 
         <field name="level_selection">
             <prompt>
@@ -197,13 +194,13 @@
             <script>
                 promptContext.incrementNoInputCount();
             </script>
-            <if cond="promptContext.noInputCount &lt; 3">
-                <audio src="./Hello.wav"/>
-                Did not hear from you for <value expr="promptContext.noInputCount"/> times.
-            <else/>
+            <if cond="promptContext.hasExceededMaxNoInputs()">
                 <audio src="./Hello.wav"/>
                 Continuing with disconnect since did not hear from you for too long.
                 <disconnect/>
+            <else/>
+                <audio src="./Hello.wav"/>
+                Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             </if>
             <reprompt/>
         </block>
