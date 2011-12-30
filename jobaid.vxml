@@ -81,6 +81,7 @@
         };
 
         var MAX_NO_INPUTS = 3;
+        var GREETING = "./Hello.wav";
     </script>
 
     <script>
@@ -120,13 +121,13 @@
 
         <block>
             <prompt name="welcome" bargein="false">
-                <audio src="./Hello.wav"/>
+                <audio expr="GREETING"/>
             </prompt>
         </block>
 
         <field name="level_selection">
             <prompt>
-                <audio src="./Hello.wav"/>
+                <audio expr="GREETING"/>
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
             </prompt>
@@ -155,7 +156,7 @@
             </noinput>
 
             <filled>
-                <audio src="./Hello.wav"/>
+                <audio expr="GREETING"/>
                 <prompt>You entered <value expr="level_selection"/>, when i asked you for level.</prompt>
                 <goto expritem="next_item"/>
             </filled>
@@ -195,11 +196,9 @@
                 promptContext.incrementNoInputCount();
             </script>
             <if cond="promptContext.hasExceededMaxNoInputs()">
-                <audio src="./Hello.wav"/>
                 Continuing with disconnect since did not hear from you for too long.
                 <disconnect/>
             <else/>
-                <audio src="./Hello.wav"/>
                 Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             </if>
             <reprompt/>
