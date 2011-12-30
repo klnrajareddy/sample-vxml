@@ -108,6 +108,8 @@
 
         };
 
+        var promptContext = new PromptContext();
+
     </script>
 
     <property name="timeout" value="10"/>
@@ -120,12 +122,8 @@
         </block>
 
         <field name="level_selection">
-            <script>
-                var promptContext = new PromptContext();
-            </script>
-
             <prompt>
-                <value expr="course.menu"></value>.
+                <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
             </prompt>
 
