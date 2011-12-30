@@ -120,11 +120,6 @@
     <form id="job_aid">
 
         <block>
-            <log>
-                -----------------------------------------------------
-                    The value of GREETING has been evaluated to: <value expr="GREETING"/>
-                -----------------------------------------------------
-            </log>
             <prompt name="welcome">
                 <audio src="./Hello.wav"/>
             </prompt>
