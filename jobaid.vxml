@@ -11,7 +11,11 @@
             Welcome to Job Aid
         </block>
 
-         <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
+
+
+        <field name="level_selection">
+            <prompt>Select level.</prompt>
+                  <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
@@ -27,10 +31,6 @@
              </one-of>
             </rule>
           </grammar>
-
-        <field name="level_selection">
-            <prompt>Select level.</prompt>
-
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
