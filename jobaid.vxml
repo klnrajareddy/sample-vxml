@@ -118,8 +118,9 @@
 
     <form id="job_aid">
 
+        <audio src="./Hello.wav"/>
+
         <block name="welcome">
-            <audio src="./Hello.wav"/>
             <value expr="course.introduction"/>.
             Number of levels are <value expr="course.levels.length"/>.
         </block>
