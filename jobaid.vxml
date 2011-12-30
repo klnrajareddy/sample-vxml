@@ -3,6 +3,82 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
     <script>
+        var course = {
+            "introduction" : "Welcome to the Job Aid Course. This will help you in your duties.",
+            "menu" : "Please select a level",
+            "levels" :[
+                {
+                    "introduction" : "Level 1",
+                    "menu" : "Please select a chapter in level 1",
+                    "chapters" :[
+                        {
+                                "introduction" : "Level 1 Chapter 1",
+                                "menu" : "Please select a lesson in level 1  chapter 1",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 1 level 1"},
+                                    {"content" : "This is lesson 2 in chapter 1 level 1"},
+                                    {"content" : "This is lesson 3 in chapter 1 level 1"},
+                                    {"content" : "This is lesson 4 in chapter 1 level 1"}
+                                ]
+                        },
+                        {
+                                "introduction" : "Level 1 Chapter 2",
+                                "menu" : "Please select a lesson in level 1  chapter 2",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 2 level 1"},
+                                    {"content" : "This is lesson 2 in chapter 2 level 1"},
+                                    {"content" : "This is lesson 3 in chapter 2 level 1"},
+                                    {"content" : "This is lesson 4 in chapter 2 level 1"}
+                                ]
+                        },
+                        {
+                                "introduction" : "Level 1 Chapter 3",
+                                "menu" : "Please select a lesson in level 1  chapter 3",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 3 level 1"},
+                                    {"content" : "This is lesson 2 in chapter 3 level 1"},
+                                    {"content" : "This is lesson 3 in chapter 3 level 1"},
+                                    {"content" : "This is lesson 4 in chapter 3 level 1"}
+                                ]
+                        },
+                    ]},
+                {
+                    "introduction" : "Level 2",
+                    "menu" : "Please select a chapter in level 2",
+                    "chapters" :[
+                        {
+                                "introduction" : "Level 2 Chapter 1",
+                                "menu" : "Please select a lesson in level 2  chapter 1",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 1 level 2"},
+                                    {"content" : "This is lesson 2 in chapter 1 level 2"},
+                                    {"content" : "This is lesson 3 in chapter 1 level 2"},
+                                    {"content" : "This is lesson 4 in chapter 1 level 2"}
+                                ]
+                        },
+                        {
+                                "introduction" : "Level 2 Chapter 2",
+                                "menu" : "Please select a lesson in level 2 chapter 2",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 2 level 2"},
+                                    {"content" : "This is lesson 2 in chapter 2 level 2"},
+                                    {"content" : "This is lesson 3 in chapter 2 level 2"},
+                                    {"content" : "This is lesson 4 in chapter 2 level 2"}
+                                ]
+                        },
+                        {
+                                "introduction" : "Level 2 Chapter 3",
+                                "menu" : "Please select a lesson in level 2  chapter 3",
+                                "lessons" : [
+                                    {"content" : "This is lesson 1 in chapter 3 level 2"},
+                                    {"content" : "This is lesson 2 in chapter 3 level 2"},
+                                    {"content" : "This is lesson 3 in chapter 3 level 2"},
+                                    {"content" : "This is lesson 4 in chapter 3 level 2"}
+                                ]
+                        },
+                    ]}
+            ]
+        };
         var levelSelected = 0;
         var time_out=10;
         var next_item = "level_intro";
@@ -14,62 +90,63 @@
     <form id="job_aid">
 
         <block name="welcome">
-            Welcome to Job Aid
+            <value expr="course.content"/>.
+            Number of levels are <value expr="course.levels.length"/>.
         </block>
 
-        <field name="level_selection">
-            <prompt>Select level.</prompt>
+        <!--<field name="level_selection">-->
+            <!--<prompt>Select level.</prompt>-->
 
-            <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root">
-                    <one-of>
-                        <foreach item="acceptedChar" array="levels">
-                            <item><value expr="acceptedChar"/></item>
-                        </foreach>
-                    </one-of>
-                </rule>
-              </grammar>
-            <!--Validation-->
-            <noinput>
-                <prompt> Please say something.</prompt>
-            </noinput>
-            <nomatch>
+            <!--<grammar mode="dtmf" version="1.0" root="root">-->
+                <!--<rule id="root">-->
+                    <!--<one-of>-->
+                        <!--<foreach item="acceptedChar" array="levels">-->
+                            <!--<item><value expr="acceptedChar"/></item>-->
+                        <!--</foreach>-->
+                    <!--</one-of>-->
+                <!--</rule>-->
+              <!--</grammar>-->
+            <!--&lt;!&ndash;Validation&ndash;&gt;-->
+            <!--<noinput>-->
+                <!--<prompt> Please say something.</prompt>-->
+            <!--</noinput>-->
+            <!--<nomatch>-->
 
-            </nomatch>
-            <filled>
-                <prompt>You entered <value expr="level_selection"/></prompt>
-                <goto expritem="next_item"/>
-            </filled>
-        </field>
+            <!--</nomatch>-->
+            <!--<filled>-->
+                <!--<prompt>You entered <value expr="level_selection"/></prompt>-->
+                <!--<goto expritem="next_item"/>-->
+            <!--</filled>-->
+        <!--</field>-->
 
-        <block name="level_intro">
-            This is an intro for level <value expr="level_selection"/>
-        </block>
+        <!--<block name="level_intro">-->
+            <!--This is an intro for level <value expr="level_selection"/>-->
+        <!--</block>-->
 
-        <field name="chapter_selection">
-            <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
-                   <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root">
-             <one-of>
-               <item> 0 </item>
-               <item> 1 </item>
-               <item> 2 </item>
-               <item> 3 </item>
-               <item> 4 </item>
-               <item> 5 </item>
-               <item> 6 </item>
-               <item> 7 </item>
-               <item> 8 </item>
-               <item> 9 </item>
-             </one-of>
-            </rule>
-          </grammar>
-            <!--Validation-->
-            <filled>
-                <prompt>You entered <value expr="chapter_selection"/></prompt>
-                <prompt>You called from <value expr="session.callerid"/></prompt>
-            </filled>
-        </field>
+        <!--<field name="chapter_selection">-->
+            <!--<prompt>Select chapter within level <value expr="level_selection"/>.</prompt>-->
+                   <!--<grammar mode="dtmf" version="1.0" root="root">-->
+                <!--<rule id="root">-->
+             <!--<one-of>-->
+               <!--<item> 0 </item>-->
+               <!--<item> 1 </item>-->
+               <!--<item> 2 </item>-->
+               <!--<item> 3 </item>-->
+               <!--<item> 4 </item>-->
+               <!--<item> 5 </item>-->
+               <!--<item> 6 </item>-->
+               <!--<item> 7 </item>-->
+               <!--<item> 8 </item>-->
+               <!--<item> 9 </item>-->
+             <!--</one-of>-->
+            <!--</rule>-->
+          <!--</grammar>-->
+            <!--&lt;!&ndash;Validation&ndash;&gt;-->
+            <!--<filled>-->
+                <!--<prompt>You entered <value expr="chapter_selection"/></prompt>-->
+                <!--<prompt>You called from <value expr="session.callerid"/></prompt>-->
+            <!--</filled>-->
+        <!--</field>-->
     </form>
 </vxml>
 
