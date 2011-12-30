@@ -153,7 +153,7 @@
                 <script>
                     promptContext.incrementNoInputCount();
                 </script>
-                <if cond="promptContext.noInputCount < 3">
+                <if cond="promptContext.noInputCount &lt; 3">
                     Did not hear from you for <value expr="promptContext.noInputCount"/> times.
                     <goto nextitem="level_selection"/>
                 <else/>
