@@ -150,16 +150,7 @@
 
             <noinput>
                 <!--This has to be extracted out, since every field will be using this. Can we use "subdialogs" or are there any equivalents of methods?-->
-                <script>
-                    promptContext.incrementNoInputCount();
-                </script>
-                <if cond="promptContext.noInputCount &lt; 3">
-                    Did not hear from you for <value expr="promptContext.noInputCount"/> times.
-                <else/>
-                    Continuing with disconnect since did not hear from you for too long.
-                    <disconnect/>
-                </if>
-                <reprompt/>
+                <subdialog src="#noInputAction"/>
             </noinput>
 
             <filled>
@@ -196,6 +187,19 @@
                 <prompt>You called from <value expr="session.callerid"/></prompt>
             </filled>
         </field>
+    </form>
+
+    <form id="noInputAction">
+        <script>
+            promptContext.incrementNoInputCount();
+        </script>
+        <if cond="promptContext.noInputCount &lt; 3">
+            Did not hear from you for <value expr="promptContext.noInputCount"/> times.
+        <else/>
+            Continuing with disconnect since did not hear from you for too long.
+            <disconnect/>
+        </if>
+        <reprompt/>
     </form>
 </vxml>
 
