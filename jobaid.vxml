@@ -6,38 +6,36 @@
         var levelSelected = 0;
         var time_out=10;
         var next_item = "level_intro";
+        var levels = [0,1,2,3];
     </script>
+
     <property name="timeout" value="10"/>
+
     <form id="job_aid">
 
         <block name="welcome">
             Welcome to Job Aid
         </block>
 
-
-
         <field name="level_selection">
             <prompt>Select level.</prompt>
-                 <grammar mode="dtmf" version="1.0" root="root">
+
+            <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
-             <one-of>
-               <item> 0 </item>
-               <item> 1 </item>
-               <item> 2 </item>
-               <item> 3 </item>
-               <item> 4 </item>
-               <item> 5 </item>
-               <item> 6 </item>
-               <item> 7 </item>
-               <item> 8 </item>
-               <item> 9 </item>
-             </one-of>
-            </rule>
-          </grammar>
+                    <one-of>
+                        <foreach item="acceptedChar" array="levels">
+                            <item><value expr="acceptedChar"/></item>
+                        </foreach>
+                    </one-of>
+                </rule>
+              </grammar>
             <!--Validation-->
             <noinput>
                 <prompt> Please say something.</prompt>
             </noinput>
+            <nomatch>
+
+            </nomatch>
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
                 <goto expritem="next_item"/>
