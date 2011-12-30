@@ -6,7 +6,7 @@
         var levelSelected = 0;
         var time_out=10;
     </script>
-    <property name="timeout" value="10"/>
+    <property name="timeout" value="1"/>
     <form id="job_aid">
 
         <block name="welcome">
