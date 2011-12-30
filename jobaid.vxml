@@ -4,10 +4,20 @@
       xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
     <script>
         var levelSelected = 0;
+        var time_out=10;
     </script>
-
+    <property name="timeout" value="10"/>
     <form id="job_aid">
-          <grammar scope="document" mode="dtmf" version="1.0" root="root">
+
+        <block name="welcome">
+            Welcome to Job Aid
+        </block>
+
+
+
+        <field name="level_selection">
+            <prompt>Select level.</prompt>
+                 <grammar scope="document" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
@@ -23,15 +33,6 @@
              </one-of>
             </rule>
           </grammar>
-        <block name="welcome">
-            Welcome to Job Aid
-        </block>
-
-
-
-        <field name="level_selection">
-            <prompt>Select level.</prompt>
-
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
@@ -45,7 +46,22 @@
 
         <field name="chapter_selection">
             <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
-
+                   <grammar scope="document" mode="dtmf" version="1.0" root="root">
+                <rule id="root">
+             <one-of>
+               <item> 0 </item>
+               <item> 1 </item>
+               <item> 2 </item>
+               <item> 3 </item>
+               <item> 4 </item>
+               <item> 5 </item>
+               <item> 6 </item>
+               <item> 7 </item>
+               <item> 8 </item>
+               <item> 9 </item>
+             </one-of>
+            </rule>
+          </grammar>
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="chapter_selection"/></prompt>
