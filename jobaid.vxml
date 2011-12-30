@@ -40,7 +40,7 @@
             </noinput>
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
-                <goto expr="next_item"/>
+                <goto expritem="next_item"/>
             </filled>
         </field>
 
