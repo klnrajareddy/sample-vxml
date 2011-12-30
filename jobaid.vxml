@@ -126,10 +126,11 @@
         </block>
 
 
-        <!--
         <field name="level_selection">
             <prompt>
                 <audio expr="GREETING"/>
+            </prompt>
+            <prompt>
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
             </prompt>
@@ -186,9 +187,7 @@
              </one-of>
             </rule>
           </grammar>
-          -->
             <!--Validation-->
-        <!--
             <filled>
                 <prompt>You entered <value expr="chapter_selection"/></prompt>
                 <prompt>You called from <value expr="session.callerid"/></prompt>
@@ -207,7 +206,6 @@
             </if>
             <reprompt/>
         </block>
-        -->
     </form>
 
 </vxml>
