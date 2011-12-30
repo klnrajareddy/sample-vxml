@@ -119,12 +119,14 @@
     <form id="job_aid">
 
         <block name="welcome">
+            <audio src="./Hello.wav"/>
             <value expr="course.introduction"/>.
             Number of levels are <value expr="course.levels.length"/>.
         </block>
 
         <field name="level_selection">
             <prompt>
+                <audio src="./Hello.wav"/>
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
             </prompt>
@@ -149,11 +151,11 @@
               </grammar>
 
             <noinput>
-                <!--This has to be extracted out, since every field will be using this. Can we use "subdialogs" or are there any equivalents of methods?-->
                 <goto nextitem="noInputAction"/>
             </noinput>
 
             <filled>
+                <audio src="./Hello.wav"/>
                 <prompt>You entered <value expr="level_selection"/>, when i asked you for level.</prompt>
                 <goto expritem="next_item"/>
             </filled>
@@ -193,8 +195,10 @@
                 promptContext.incrementNoInputCount();
             </script>
             <if cond="promptContext.noInputCount &lt; 3">
+                <audio src="./Hello.wav"/>
                 Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             <else/>
+                <audio src="./Hello.wav"/>
                 Continuing with disconnect since did not hear from you for too long.
                 <disconnect/>
             </if>
