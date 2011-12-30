@@ -125,7 +125,7 @@
                     The value of GREETING has been evaluated to: <value expr="GREETING"/>
                 -----------------------------------------------------
             </log>
-            <prompt name="welcome" bargein="false">
+            <prompt name="welcome">
                 <audio expr="GREETING"/>
             </prompt>
         </block>
