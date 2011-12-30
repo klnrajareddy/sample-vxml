@@ -97,7 +97,7 @@
         </block>
 
         <field name="level_selection">
-            <prompt>course.levels.introduction</prompt>
+            <prompt><value expr="course.levels.introduction"></value></prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
