@@ -114,7 +114,7 @@
         var promptContext = new PromptContext();
     </script>
 
-    <property name="timeout" value="10s"/>
+    <property name="timeout" value="3s"/>
 
     <form id="job_aid">
 
@@ -153,15 +153,13 @@
                 <script>
                     promptContext.incrementNoInputCount();
                 </script>
-                <!--<if cond="promptContext.noInputCount > 3">-->
-                    <!--<block>-->
-                        Did not hear from you for <value expr="promptContext.noInputCount"/> times.
-                    <!--</block>-->
+                <if cond="promptContext.noInputCount < 3">
+                    Did not hear from you for <value expr="promptContext.noInputCount"/> times.
                     <goto nextitem="level_selection"/>
-                <!--<else/>-->
-                    <!--<block>Continuing with disconnect since did not hear from you for too long.</block>-->
-                    <!--<disconnect/>-->
-                <!--</if>-->
+                <else/>
+                    Continuing with disconnect since did not hear from you for too long.
+                    <disconnect/>
+                </if>
             </noinput>
 
             <filled>
