@@ -198,7 +198,7 @@
                 Continuing with disconnect since did not hear from you for too long.
                 <disconnect/>
             </if>
-            <goto nextitem="level_selection"/>
+            <reprompt/>
         </block>
     </form>
 
