@@ -7,7 +7,7 @@
     </script>
 
     <form id="job_aid">
-          <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
+          <grammar scope="document" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
