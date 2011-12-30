@@ -121,7 +121,7 @@
 
         <block>
             <prompt name="welcome">
-                <audio src="./Hello.wav"/>
+                <audio expr="GREETING"/>
             </prompt>
         </block>
 
