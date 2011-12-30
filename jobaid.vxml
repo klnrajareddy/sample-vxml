@@ -6,12 +6,12 @@
         var levelSelected = 0;
     </script>
 
-    <form id="job_aid" scope="document">
+    <form id="job_aid">
         <block name="welcome">
             Welcome to Job Aid
         </block>
 
-         <grammar scope="document" mode="dtmf" version="1.0" root="root">
+         <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
