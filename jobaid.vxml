@@ -154,7 +154,7 @@
             </noinput>
 
             <filled>
-                <prompt>You entered <value expr="level_selection"/></prompt>
+                <prompt>You entered <value expr="level_selection"/>, when i asked you for level.</prompt>
                 <goto expritem="next_item"/>
             </filled>
         </field>
