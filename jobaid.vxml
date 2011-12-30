@@ -119,8 +119,8 @@
 
     <form id="job_aid">
 
-        <block>
-            <prompt name="welcome">
+        <block name="welcome">
+            <prompt name="welcome" bargein="false">
                 <audio expr="GREETING"/>
             </prompt>
         </block>
