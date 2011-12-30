@@ -80,11 +80,34 @@
             ]
         };
 
+        var MAX_NO_INPUTS = 3;
+    </script>
 
+    <script>
         var levelSelected = 0;
         var time_out=10;
         var next_item = "level_intro";
         var levels = [0,1,2,3];
+
+        var PromptContext = function() {
+
+            this.noInputCount = 0;
+            this.invalidInputCount = 0;
+
+            this.incrementNoInputCount = function() {
+                this.noInputCount++;
+            }
+
+            this.incrementInvalidInputCount = function() {
+                this.invalidInputCount++;
+            }
+
+            this.hasExceededMaxNoInputs = function() {
+                return this.noInputCount > MAX_NO_INPUTS;
+            }
+
+        };
+
     </script>
 
     <property name="timeout" value="10"/>
@@ -97,22 +120,41 @@
         </block>
 
         <field name="level_selection">
+            <script>
+                var promptContext = new PromptContext();
+            </script>
+
             <prompt><value expr="course.menu"></value></prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
                     <one-of>
-                        <item>1 2 3</item>
+                        <item>0</item>
+                        <item>1</item>
+                        <item>2</item>
+                        <item>3</item>
+                        <item>4</item>
+                        <item>5</item>
+                        <item>6</item>
+                        <item>7</item>
+                        <item>8</item>
+                        <item>9</item>
+                        <item>*</item>
+                        <item>#</item>
                     </one-of>
                 </rule>
               </grammar>
-            <!--Validation-->
-            <noinput>
-                <prompt> Please say something.</prompt>
-            </noinput>
-            <nomatch>
 
-            </nomatch>
+            <noinput>
+                <script>
+                    promptContext.incrementNoInputCount();
+                </script>
+
+                <prompt>
+                    Did not hear from you for <value expr="promptContext.noInputCount"/> times.
+                </prompt>
+            </noinput>
+
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
                 <goto expritem="next_item"/>
