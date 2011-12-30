@@ -108,7 +108,7 @@
 
         };
 
-        var promptContext = new PromptContext();
+
 
     </script>
 
@@ -120,6 +120,9 @@
             <value expr="course.introduction"/>.
             Number of levels are <value expr="course.levels.length"/>.
         </block>
+        <script>
+            var promptContext = new PromptContext();
+        </script>
 
         <field name="level_selection">
             <prompt>
