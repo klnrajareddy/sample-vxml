@@ -5,8 +5,9 @@
     <script>
         var levelSelected = 0;
         var time_out=10;
+        var next_item = "level_intro";
     </script>
-    <property name="timeout" value="1"/>
+    <property name="timeout" value="10"/>
     <form id="job_aid">
 
         <block name="welcome">
@@ -39,7 +40,7 @@
             </noinput>
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
-                <goto nextitem="level_intro"/>
+                <goto expr="next_item"/>
             </filled>
         </field>
 
