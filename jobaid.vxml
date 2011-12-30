@@ -5,17 +5,7 @@
     <script>
         var levelSelected = 0;
     </script>
-
-    <form id="job_aid">
-        <block name="welcome">
-            Welcome to Job Aid
-        </block>
-
-
-
-        <field name="level_selection">
-            <prompt>Select level.</prompt>
-                  <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
+       <grammar scope="dialog" mode="dtmf" version="1.0" root="root">
                 <rule id="root">
              <one-of>
                <item> 0 </item>
@@ -31,6 +21,16 @@
              </one-of>
             </rule>
           </grammar>
+    <form id="job_aid">
+        <block name="welcome">
+            Welcome to Job Aid
+        </block>
+
+
+
+        <field name="level_selection">
+            <prompt>Select level.</prompt>
+
             <!--Validation-->
             <filled>
                 <prompt>You entered <value expr="level_selection"/></prompt>
