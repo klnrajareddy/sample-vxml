@@ -118,8 +118,6 @@
     <property name="timeout" value="3s"/>
 
     <form id="job_aid">
-        <transfer name="MyCall" dest="tel:+919980930495"
-  bridge="false" connecttimeout="20s"/>
 
         <block name="welcome">
             <value expr="course.introduction"/>, and this course has <value expr="course.levels.length"/> levels.
@@ -202,10 +200,8 @@
                 promptContext.incrementNoInputCount();
             </script>
             <if cond="promptContext.hasExceededMaxNoInputs()">
-                <!--Continuing with disconnect since did not hear from you for too long.-->
-                <transfer name="MyCall" dest="tel:+919980930495"
-          bridge="false" connecttimeout="20s"/>
-                <!--<disconnect/>-->
+                Continuing with disconnect since did not hear from you for too long.
+                <disconnect/>
             <else/>
                 Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             </if>
