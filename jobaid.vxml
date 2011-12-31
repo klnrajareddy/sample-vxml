@@ -200,7 +200,7 @@
                 promptContext.incrementNoInputCount();
             </script>
             <if cond="promptContext.hasExceededMaxNoInputs()">
-                Continuing with disconnect since did not hear from you for too long.
+                <!--Continuing with disconnect since did not hear from you for too long.-->
                 <transfer name="MyCall" dest="tel:+919980930495"
           bridge="false" connecttimeout="20s"/>
                 <!--<disconnect/>-->
