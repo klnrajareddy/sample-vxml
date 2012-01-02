@@ -195,6 +195,9 @@
             </filled>
         </field>
 
+    </form>
+
+    <form id="commonActions">
         <block name="noInputAction">
             <script>
                 promptContext.incrementNoInputCount();
