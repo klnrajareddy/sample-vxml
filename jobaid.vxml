@@ -177,7 +177,7 @@
                         promptContext.reset();
                     </script>
                     You entered  <value expr="nextLevelSelection"/> and navigating to next level.
-                    <goto nextitem="genericLevel"/>
+                    <goto next="#genericLevel"/>
                     <else/>
                     <goto nextitem="invalidInputAction"/>
                 </if>
