@@ -118,7 +118,6 @@
     <property name="timeout" value="3s"/>
 
     <form id="job_aid">
-
         <block name="welcome">
             <value expr="course.introduction"/>, and this course has <value expr="course.levels.length"/> levels.
         </block>
@@ -126,13 +125,11 @@
         <field name="level_selection">
             <prompt>
                 <audio expr="GREETING"/>
+                <audio expr="GREETING"/>
             </prompt>
             <prompt>
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
-            </prompt>
-            <prompt count="3">
-                This might be your last chance.
             </prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
