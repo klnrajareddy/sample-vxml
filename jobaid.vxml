@@ -124,16 +124,15 @@
         </block>
 
 
+        <block name="come_here">
         <field name="level_selection">
-            <block>
-                <prompt>
-                    <audio expr="GREETING"/>
-                </prompt>
-                <prompt>
-                    <value expr="course.menu"/>.
-                    Current no input count is: <value expr="promptContext.noInputCount"/>
-                </prompt>
-            </block>
+            <prompt>
+                <audio expr="GREETING"/>
+            </prompt>
+            <prompt>
+                <value expr="course.menu"/>.
+                Current no input count is: <value expr="promptContext.noInputCount"/>
+            </prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
@@ -164,6 +163,7 @@
                 <goto expritem="next_item"/>
             </filled>
         </field>
+        </block>
 
         <block name="level_intro">
             This is an intro for level <value expr="level_selection"/>
