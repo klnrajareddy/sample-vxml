@@ -176,7 +176,7 @@
                     </script>
                     You entered  <value expr="nextLevelSelection"/>
                     <else/>
-                    <goto nextItem="invalidInputAction"/>
+                    <goto nextitem="invalidInputAction"/>
                 </if>
 
             </filled>
