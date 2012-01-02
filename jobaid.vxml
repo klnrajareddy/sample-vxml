@@ -132,6 +132,12 @@
     <!--Should see if the property setting can be configuration driven, or if this could be set as a session variable-->
     <property name="timeout" value="3s"/>
 
+    <form name="dummy">
+        <block>
+            This is dummy to see if the call proceeds.
+        </block>
+    </form>
+
     <form name="genericLevel">
         <block name="introduction">
             Hi, Welcome.
