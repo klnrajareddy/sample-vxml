@@ -123,8 +123,6 @@
             <value expr="course.introduction"/>, and this course has <value expr="course.levels.length"/> levels.
         </block>
 
-
-        <block name="come_here">
         <field name="level_selection">
             <prompt>
                 <audio expr="GREETING"/>
@@ -132,6 +130,9 @@
             <prompt>
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
+            </prompt>
+            <prompt count="3">
+                This might be your last chance.
             </prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
@@ -163,7 +164,6 @@
                 <goto expritem="next_item"/>
             </filled>
         </field>
-        </block>
 
         <block name="level_intro">
             This is an intro for level <value expr="level_selection"/>
