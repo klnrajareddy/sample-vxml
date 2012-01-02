@@ -207,7 +207,7 @@
             <else/>
                 Did not enter correct input for <value expr="promptContext.invalidInputCount"/> times.
             </if>
-            <reprompt/>
+            <goto nextitem="nextLevelSelection"/>
         </block>
     </form>
 
