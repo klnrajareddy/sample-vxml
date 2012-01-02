@@ -125,15 +125,14 @@
 
 
         <field name="level_selection">
-            <prompt>
-                <audio expr="GREETING"/>
-            </prompt>
-            <prompt>
-                <value expr="course.menu"/>.
-                Current no input count is: <value expr="promptContext.noInputCount"/>
-            </prompt>
             <block>
-                Test Test.
+                <prompt>
+                    <audio expr="GREETING"/>
+                </prompt>
+                <prompt>
+                    <value expr="course.menu"/>.
+                    Current no input count is: <value expr="promptContext.noInputCount"/>
+                </prompt>
             </block>
 
             <grammar mode="dtmf" version="1.0" root="root">
