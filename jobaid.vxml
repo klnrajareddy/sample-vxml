@@ -121,9 +121,6 @@
 
         <block name="welcome">
             <value expr="course.introduction"/>, and this course has <value expr="course.levels.length"/> levels.
-            <prompt name="welcome" bargein="false">
-                <audio expr="GREETING"/>
-            </prompt>
         </block>
 
 
@@ -135,6 +132,9 @@
                 <value expr="course.menu"/>.
                 Current no input count is: <value expr="promptContext.noInputCount"/>
             </prompt>
+            <block>
+                Test Test.
+            </block>
 
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
@@ -195,9 +195,6 @@
             </filled>
         </field>
 
-    </form>
-
-    <form id="commonActions">
         <block name="noInputAction">
             <script>
                 promptContext.incrementNoInputCount();
@@ -208,7 +205,7 @@
             <else/>
                 Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             </if>
-            <reprompt/>
+            <goto nextitem="level_selection"/>
         </block>
     </form>
 
