@@ -3,6 +3,7 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
     <script>
+        <![CDATA[
         var course = {
             "introduction" : "Welcome to the Job Aid Course. This will help you in your duties.",
             "menu" : "Please select a level",
@@ -81,10 +82,13 @@
         };
 
         var MAX_NO_INPUTS = 3;
+        var MAX_INVALID_INPUTS = 3;
         var GREETING = "./Hello.wav";
+        ]]>
     </script>
 
     <script>
+        <![CDATA[
         var levelSelected = 0;
         var time_out=10;
         var next_item = "level_intro";
@@ -104,34 +108,42 @@
                 return this.noInputCount > MAX_NO_INPUTS;
             }
 
+            this.hasExceededMaxInvalidInputs = function() {
+                return this.invalidInputCount > MAX_INVALID_INPUTS;
+            }
+
             this.reset = function() {
                 this.noInputCount = 0;
                 this.invalidInputCount = 0;
+                this.tempToControlValidation = 0;
+            }
+
+            this.isValidInput = function(input) {
+                return input < 4;
             }
 
             this.reset();
         };
 
         var promptContext = new PromptContext();
+        ]]>
     </script>
 
+    <!--Should see if the property setting can be configuration driven, or if this could be set as a session variable-->
     <property name="timeout" value="3s"/>
 
-    <form id="job_aid">
-        <block name="welcome">
-            <value expr="course.introduction"/>, and this course has <value expr="course.levels.length"/> levels.
+    <form id="genericLevel">
+        <block name="introduction">
+            <audio expr=""/>
         </block>
 
-        <field name="level_selection">
+        <!--TODO: The next level selection should be played only in case there is next level.-->
+        <field name="nextLevelSelection">
             <prompt>
-                <audio expr="GREETING"/>
-                <audio expr="GREETING"/>
-            </prompt>
-            <prompt>
-                <value expr="course.menu"/>.
-                Current no input count is: <value expr="promptContext.noInputCount"/>
+                <audio expr=""/>
             </prompt>
 
+            <!--TODO: Should also specify the length of the dtmf input.-->
             <grammar mode="dtmf" version="1.0" root="root">
                 <rule id="root">
                     <one-of>
@@ -151,43 +163,22 @@
                 </rule>
               </grammar>
 
+
             <noinput>
                 <goto nextitem="noInputAction"/>
             </noinput>
 
             <filled>
-                <audio expr="GREETING"/>
-                <prompt>You entered <value expr="level_selection"/>, when i asked you for level.</prompt>
-                <goto expritem="next_item"/>
-            </filled>
-        </field>
+                <!--TODO: Need to put in validation-->
+                <if cond="promptContext.isValidInput(nextLevelSelection)">
+                    <script>
+                        promptContext.reset();
+                    </script>
+                    You entered  <value expr="nextLevelSelection"/>
+                    <else/>
+                    <goto nextItem="invalidInputAction"/>
+                </if>
 
-        <block name="level_intro">
-            This is an intro for level <value expr="level_selection"/>
-        </block>
-
-        <field name="chapter_selection">
-            <prompt>Select chapter within level <value expr="level_selection"/>.</prompt>
-                   <grammar mode="dtmf" version="1.0" root="root">
-                <rule id="root">
-             <one-of>
-               <item> 0 </item>
-               <item> 1 </item>
-               <item> 2 </item>
-               <item> 3 </item>
-               <item> 4 </item>
-               <item> 5 </item>
-               <item> 6 </item>
-               <item> 7 </item>
-               <item> 8 </item>
-               <item> 9 </item>
-             </one-of>
-            </rule>
-          </grammar>
-            <!--Validation-->
-            <filled>
-                <prompt>You entered <value expr="chapter_selection"/></prompt>
-                <prompt>You called from <value expr="session.callerid"/></prompt>
             </filled>
         </field>
 
@@ -201,7 +192,20 @@
             <else/>
                 Did not hear from you for <value expr="promptContext.noInputCount"/> times.
             </if>
-            <goto nextitem="level_selection"/>
+            <reprompt/>
+        </block>
+
+        <block name="invalidInputAction">
+            <script>
+                promptContext.incrementInvalidInputCount();
+            </script>
+            <if cond="promptContext.hasExceededMaxInvalidInputs()">
+                Continuing with disconnect since got invalid inputs for too many times.
+                <disconnect/>
+            <else/>
+                Did not enter correct input for <value expr="promptContext.invalidInputCount"/> times.
+            </if>
+            <reprompt/>
         </block>
     </form>
 
