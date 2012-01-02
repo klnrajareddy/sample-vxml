@@ -180,9 +180,9 @@
             <filled>
                 <!--TODO: Need to put in validation-->
                 <if cond="promptContext.isValidInput(nextLevelSelection)">
-                    <script>
-                        promptContext.reset();
-                    </script>
+                    <!--<script>-->
+                        <!--promptContext.reset();-->
+                    <!--</script>-->
                     You entered  <value expr="nextLevelSelection"/> and navigating to next level.
                     <goto next="#genericLevel"/>
                     <else/>
