@@ -139,7 +139,7 @@
         </block>
 
         <!--TODO: The next level selection should be played only in case there is next level.-->
-        <field name="nextLevelSelection">
+        <field name="nextLevelSelection" >
             <prompt>
                 <audio expr="GREETING"/>
                 <!--<audio expr=""/>-->
@@ -176,7 +176,8 @@
                     <script>
                         promptContext.reset();
                     </script>
-                    You entered  <value expr="nextLevelSelection"/>
+                    You entered  <value expr="nextLevelSelection"/> and navigating to next level.
+                    <goto nextitem="genericLevel"/>
                     <else/>
                     <goto nextitem="invalidInputAction"/>
                 </if>
