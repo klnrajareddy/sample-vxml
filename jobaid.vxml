@@ -136,6 +136,7 @@
         <block>
             This is dummy to see if the call proceeds.
         </block>
+        <goto next="#genericLevel"/>
     </form>
 
     <form name="genericLevel">
@@ -183,7 +184,7 @@
                         promptContext.reset();
                     </script>
                     You entered  <value expr="nextLevelSelection"/> and navigating to next level.
-                    <goto next="#genericLevel"/>
+                    <goto next="#dummy"/>
                     <else/>
                     <goto nextitem="invalidInputAction"/>
                 </if>
