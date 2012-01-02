@@ -94,8 +94,6 @@
         var next_item = "level_intro";
         var levels = [0,1,2,3];
 
-        var
-
         var PromptContext = function() {
 
             this.incrementNoInputCount = function() {
