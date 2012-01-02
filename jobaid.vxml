@@ -132,7 +132,7 @@
     <!--Should see if the property setting can be configuration driven, or if this could be set as a session variable-->
     <property name="timeout" value="3s"/>
 
-    <form id="genericLevel">
+    <form name="genericLevel">
         <block name="introduction">
             Hi, Welcome.
             <!--<audio expr=""/>-->
@@ -177,7 +177,7 @@
                         promptContext.reset();
                     </script>
                     You entered  <value expr="nextLevelSelection"/> and navigating to next level.
-                    <goto nextitem="#genericLevel"/>
+                    <goto nextitem="genericLevel"/>
                     <else/>
                     <goto nextitem="invalidInputAction"/>
                 </if>
