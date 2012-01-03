@@ -94,6 +94,12 @@
         var next_item = "level_intro";
         var levels = [0,1,2,3];
 
+        var Interaction = function() {
+            this.start = function() {
+
+            }
+        };
+
         var PromptContext = function() {
 
             this.incrementNoInputCount = function() {
@@ -131,6 +137,19 @@
 
     <!--Should see if the property setting can be configuration driven, or if this could be set as a session variable-->
     <property name="timeout" value="3s"/>
+
+    <!--<form id="entry">-->
+        <!--<script>-->
+            <!--<![CDATA[-->
+                <!--interaction.start();-->
+            <!--]]>-->
+        <!--</script>-->
+        <!--<goto next="#controller"/>-->
+    <!--</form>-->
+
+    <form id="controller">
+        <goto next="#genericLevel" nextitem="nextLevelSelection"/>
+    </form>
 
     <form id="genericLevel">
         <block name="introduction">
