@@ -22,14 +22,25 @@
         </script>
         <block>
             <if cond="callContext.isAtALesson()">
+                <log>
+                    ---- Going into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+                </log>
                 <goto next="#lesson"/>
             <else/>
+                <log>
+                    ---- Going into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+                </log>
                 <goto next="#genericLevel"/>
             </if>
         </block>
     </form>
 
     <form id="genericLevel">
+        <block>
+            <log>
+                ---- Came into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+            </log>
+        </block>
         <block name="introduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
         </block>
@@ -104,7 +115,10 @@
 
     <form id="lesson">
         <block>
-            <log>Lesson data: <value expr="callContext.currentInteraction.data.id"/></log>
+            <log>
+                ---- Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+            </log>
+            <log>Lesson data: <value expr="callContext.currentInteraction.data.introduction"/></log>
             <log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></log>
             <log>Lesson? <value expr="callContext.isAtALesson()"/></log>
             <log>Lesson audio: <value expr="callContext.currentInteractionLesson()"/></log>
