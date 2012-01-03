@@ -32,7 +32,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_1_lesson_1.wav",
+                                        "lesson": "level_1_chapter_1_lesson_1.wav",
                                     },
                                     "children" :
                                     [
@@ -42,7 +42,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_1_lesson_2.wav",
+                                        "lesson": "level_1_chapter_1_lesson_2.wav",
                                     },
                                     "children" :
                                     [
@@ -64,7 +64,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_2_lesson_1.wav",
+                                        "lesson": "level_1_chapter_2_lesson_1.wav",
                                     },
                                     "children" :
                                     [
@@ -74,7 +74,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_2_lesson_2.wav",
+                                        "lesson": "level_1_chapter_2_lesson_2.wav",
                                     },
                                     "children" :
                                     [
@@ -108,7 +108,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_1_lesson_1.wav",
+                                        "lesson": "level_2_chapter_1_lesson_1.wav",
                                     },
                                     "children" :
                                     [
@@ -118,7 +118,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_1_lesson_2.wav",
+                                        "lesson": "level_2_chapter_1_lesson_2.wav",
                                     },
                                     "children" :
                                     [
@@ -140,7 +140,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_2_lesson_1.wav",
+                                        "lesson": "level_2_chapter_2_lesson_1.wav",
                                     },
                                     "children" :
                                     [
@@ -150,7 +150,7 @@ var courseData = {
                                 {
                                     "data" :
                                     {
-                                        "lesson": "chapter_2_lesson_2.wav",
+                                        "lesson": "level_2_chapter_2_lesson_2.wav",
                                     },
                                     "children" :
                                     [
