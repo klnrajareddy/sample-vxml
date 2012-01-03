@@ -17,27 +17,18 @@
     <property name="timeout" value="3s"/>
 
     <form id="controller">
-        <!--<block>-->
-            <!--Beginning of the controller.-->
-        <!--</block>-->
-        <!--<script>-->
-            <!--callContext.resetPromptCounts();-->
-        <!--</script>-->
-        <!--<block>-->
-            <!--In the controller.-->
-            <!--Are you in a lesson is: <value expr="callContext.isAtALesson()"/>-->
-        <!--</block>-->
-        <!--<if cond="callContext.isAtALesson()">-->
-            <!--<block>-->
-                <!--Ready to play lesson.-->
-            <!--</block>-->
-            <!--<goto next="#lesson"/>-->
-        <!--<else/>-->
-            <!--<block>-->
-                <!--Ready to play some level.-->
-            <!--</block>-->
-            <goto next="#genericLevelaaaaa"/>
-        <!--</if>-->
+        <script>
+            callContext.resetPromptCounts();
+        </script>
+        <if cond="callContext.isAtALesson()">
+            <block>
+                <goto next="#lesson"/>
+            </block>
+        <else/>
+            <block>
+                <goto next="#genericLevel"/>
+            </block>
+        </if>
     </form>
 
     <form id="genericLevel">
