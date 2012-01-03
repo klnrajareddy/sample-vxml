@@ -21,10 +21,6 @@
             callContext.resetPromptCounts();
         </script>
         <block>
-            In the controller.
-            Are you in a lesson is: <value expr="callContext.isAtALesson()"/>
-        </block>
-        <block>
             <if cond="callContext.isAtALesson()">
                 <goto next="#lesson"/>
             <else/>
@@ -107,6 +103,7 @@
     </form>
 
     <form id="lesson">
+        <block>File to be played for this lesson is: <value expr="callContext.currentInteractionLesson()"/>.</block>
         <block>
             <audio expr="callContext.currentInteractionLesson()"/>
         </block>
