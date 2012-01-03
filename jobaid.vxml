@@ -27,17 +27,17 @@
             In the controller.
             Are you in a lesson is: <value expr="callContext.isAtALesson()"/>
         </block>
-        <if cond="callContext.isAtALesson()">
-            <block>
-                Ready to play lesson.
-            </block>
-            <goto next="#lesson"/>
-        <else/>
-            <block>
-                Ready to play some level.
-            </block>
+        <!--<if cond="callContext.isAtALesson()">-->
+            <!--<block>-->
+                <!--Ready to play lesson.-->
+            <!--</block>-->
+            <!--<goto next="#lesson"/>-->
+        <!--<else/>-->
+            <!--<block>-->
+                <!--Ready to play some level.-->
+            <!--</block>-->
             <goto next="#genericLevel"/>
-        </if>
+        <!--</if>-->
     </form>
 
     <form id="genericLevel">
