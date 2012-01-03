@@ -36,7 +36,7 @@
             <!--<block>-->
                 <!--Ready to play some level.-->
             <!--</block>-->
-            <goto next="#genericLevel"/>
+            <goto next="#genericLevelaaaaa"/>
         <!--</if>-->
     </form>
 
