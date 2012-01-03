@@ -26,13 +26,9 @@
         </block>
         <block>
             <if cond="callContext.isAtALesson()">
-                <block>
-                    <goto next="#lesson"/>
-                </block>
+                <goto next="#lesson"/>
             <else/>
-                <block>
-                    <goto next="#genericLevel"/>
-                </block>
+                <goto next="#genericLevel"/>
             </if>
         </block>
     </form>
