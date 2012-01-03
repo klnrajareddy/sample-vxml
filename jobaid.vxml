@@ -22,14 +22,10 @@
         </script>
         <block>
             <if cond="callContext.isAtALesson()">
-                <block name="log1">
-                    ---- Going into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
-                </block>
+                    Going into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
                 <goto next="#lesson"/>
             <else/>
-                <block name="log2">
-                    ---- Going into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
-                </block>
+                    Going into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
                 <goto next="#genericLevel"/>
             </if>
         </block>
@@ -37,9 +33,7 @@
 
     <form id="genericLevel">
         <block>
-            <block name="log3">
-                ---- Came into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
-            </block>
+                Came into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
         </block>
         <block name="introduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
@@ -115,9 +109,7 @@
 
     <form id="lesson">
         <block>
-            <block name="log4">
-                ---- Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
-            </block>
+                Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
             <!--<block name="log>Lesson data: <value expr="callContext.currentInteraction.data.introduction"/></block>-->
             <!--<block name="log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></block>-->
             <!--<block name="log>Lesson? <value expr="callContext.isAtALesson()"/></block>-->
