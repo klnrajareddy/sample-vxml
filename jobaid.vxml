@@ -139,11 +139,10 @@
     <property name="timeout" value="3s"/>
 
     <form id="controller">
-        <goto nextitem="nextLevelSelection"/>
+        <goto expr="#genericLevel"/>
     </form>
 
     <form id="genericLevel">
-
         <block name="introduction">
            <audio src="./audio/welcome.wav"/>
         </block>
@@ -222,6 +221,9 @@
         </block>
     </form>
 
+    <form id="lesson">
+
+    </form>
 </vxml>
 
 
