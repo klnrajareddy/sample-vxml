@@ -114,14 +114,10 @@
             <!--<block name="log>Lesson? <value expr="callContext.isAtALesson()"/></block>-->
             <!--<block name="log>Lesson audio: <value expr="callContext.currentInteractionLesson()"/></block>-->
             <!--<block name="log></block>-->
-        </block>
-        <block>
             <audio expr="callContext.currentInteractionLesson()"/>
-        </block>
         <script>
             callContext.lessonFinished();
         </script>
-        <block>
             <goto next="#controller"/>
         </block>
     </form>
