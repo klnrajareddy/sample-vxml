@@ -21,6 +21,7 @@
             callContext.resetPromptCounts();
         </script>
         <block>
+					  Call controller ID is: <value expr="callContext.id"/>.
             <if cond="callContext.isAtALesson()">
                     Going into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
                 <goto next="#lesson"/>
@@ -109,7 +110,8 @@
 
     <form id="lesson">
         <block>
-                Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+					  Call controller ID is: <value expr="callContext.id"/>.
+                Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>.
             <!--<block name="log>Lesson data: <value expr="callContext.currentInteraction.data.introduction"/></block>-->
             <!--<block name="log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></block>-->
             <!--<block name="log>Lesson? <value expr="callContext.isAtALesson()"/></block>-->
