@@ -103,7 +103,10 @@
     </form>
 
     <form id="lesson">
-        <block>File to be played for this lesson is: <value expr="callContext.currentInteractionLesson()"/>.</block>
+        <block>
+            <log>Lesson data: <value expr="callContext.currentInteraction.data"/></log>
+            <log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></log>
+        </block>
         <block>
             <audio expr="callContext.currentInteractionLesson()"/>
         </block>
