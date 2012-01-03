@@ -106,6 +106,9 @@
         <block>
             <log>Lesson data: <value expr="callContext.currentInteraction.data"/></log>
             <log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></log>
+            <log>Lesson? <value expr="callContext.isAtALesson()"/></log>
+            <log>Lesson audio: <value expr="callContext.currentInteractionLesson()"/></log>
+            <log>---------------------------------</log>
         </block>
         <block>
             <audio expr="callContext.currentInteractionLesson()"/>
