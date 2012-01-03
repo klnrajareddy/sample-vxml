@@ -138,9 +138,9 @@
     <!--Should see if the property setting can be configuration driven, or if this could be set as a session variable-->
     <property name="timeout" value="3s"/>
 
-    <form id="controller">
-        <goto expr="#genericLevel"/>
-    </form>
+    <!--<form id="controller">-->
+        <!--<goto expr="#genericLevel"/>-->
+    <!--</form>-->
 
     <form id="genericLevel">
         <block name="introduction">
