@@ -16,3 +16,14 @@ level_2_chapter_2_intro Level 2 Chapter 2.
 level_2_chapter_2_menu Press 1 for Lesson 1. Press 2 for Lesson 2. Press 3 for Lesson 3. Press 4 for Lesson 4.
 level_2_chapter_3_intro Level 2 Chapter 3.
 level_2_chapter_3_menu Press 1 for Lesson 1. Press 2 for Lesson 2. Press 3 for Lesson 3. Press 4 for Lesson 4.
+flw.registration.welcome welcome to front line worker registration
+flw.registration.say.name please say your name
+flw.registration.say.district please say your district
+flw.registration.say.block please say your block
+flw.registration.say.village .please say your village
+flw.registration.confirm.recording we heard it as
+flw.registration.no.input.for.name we did not receive your name. please repeat.
+flw.registration.no.input.for.district we did not receive your district. please repeat.
+flw.registration.no.input.for.block we did not receive your block. please repeat.
+flw.registration.no.input.for.village we did not receive your village. please repeat.
+flw.registration.complete you are now registered with f l w.
