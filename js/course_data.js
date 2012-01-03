@@ -1,3 +1,4 @@
+console.log("------------------Someone is requesting for the course data.--------------------------");
 var courseData = {
             // Course Starts
             "data":
