@@ -20,15 +20,21 @@
         <script>
             callContext.resetPromptCounts();
         </script>
-        <if cond="callContext.isAtALesson()">
-            <block>
-                <goto next="#lesson"/>
-            </block>
-        <else/>
-            <block>
-                <goto next="#genericLevel"/>
-            </block>
-        </if>
+        <block>
+            In the controller.
+            Are you in a lesson is: <value expr="callContext.isAtALesson()"/>
+        </block>
+        <block>
+            <if cond="callContext.isAtALesson()">
+                <block>
+                    <goto next="#lesson"/>
+                </block>
+            <else/>
+                <block>
+                    <goto next="#genericLevel"/>
+                </block>
+            </if>
+        </block>
     </form>
 
     <form id="genericLevel">
