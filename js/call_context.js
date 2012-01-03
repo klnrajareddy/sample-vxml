@@ -4,10 +4,12 @@ var CallContext = function(course, metadata) {
         this.currentInteraction = course;
         Course.buildLinks(course);
         this.metadata = metadata;
+        this.interaction = 0;
     };
 
     this.goToChild = function(childNumber) {
         this.currentInteraction = this.currentInteraction.children[childNumber - 1];
+        this.interaction++;
         return this;
     };
 
@@ -17,6 +19,7 @@ var CallContext = function(course, metadata) {
 
     this.lessonFinished = function() {
         this.currentInteraction = this.currentInteraction.siblingOnRight.parent;
+        this.interaction++;
         return this;
     };
 
