@@ -17,9 +17,16 @@
     <property name="timeout" value="3s"/>
 
     <form id="controller">
+        <block>
+            Beginning of the controller.
+        </block>
         <script>
             callContext.resetPromptCounts();
         </script>
+        <block>
+            In the controller.
+            Are you in a lesson is: <value expr="callContext.isAtALesson()"/>
+        </block>
         <if cond="callContext.isAtALesson()">
             <goto next="#lesson"/>
         <else/>
