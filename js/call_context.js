@@ -32,6 +32,10 @@ var CallContext = function(course, metadata) {
         return this.audioFileBase() + this.currentInteraction.data.menu;
     };
 
+    this.currentInteractionLesson = function() {
+        return this.audioFileBase() + this.currentInteraction.data.lesson;
+    };
+
     this.audioFileBase = function() {
         return this.metadata.audioFileBase;
     };

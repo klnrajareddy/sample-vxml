@@ -107,11 +107,15 @@
     </form>
 
     <form id="lesson">
-        <block>Hello. You got to the lesson!! Woo hoo.</block>
+        <block>
+            <audio expr="callContext.currentInteractionLesson()"/>
+        </block>
         <script>
             callContext.lessonFinished();
         </script>
-        <goto next="#controller"/>
+        <block>
+            <goto next="#controller"/>
+        </block>
     </form>
 </vxml>
 
