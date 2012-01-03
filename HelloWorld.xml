@@ -1,6 +1,8 @@
 <vxml version="2.1">
 	<form>
-		<goto nextitem="#wish"/>
+		<block>Come here</block>
+		<goto next="#wish"/>
+		<block>Do not come here</block>
 	</form>	
 <form id="wish">
 <block>
