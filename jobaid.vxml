@@ -21,12 +21,10 @@
             callContext.resetPromptCounts();
         </script>
         <block>
-					  Call controller ID is: <value expr="callContext.id"/>.
+            Number of interactions happened: <value expr="callContext.interaction"/>.
             <if cond="callContext.isAtALesson()">
-                    Going into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
                 <goto next="#lesson"/>
             <else/>
-                    Going into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
                 <goto next="#genericLevel"/>
             </if>
         </block>
@@ -34,7 +32,7 @@
 
     <form id="genericLevel">
         <block>
-                Came into non-lesson node with id: <value expr="callContext.currentInteraction.data.id"/>
+            Number of interactions happened: <value expr="callContext.interaction"/>.
         </block>
         <block name="introduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
@@ -110,8 +108,7 @@
 
     <form id="lesson">
         <block>
-					  Call controller ID is: <value expr="callContext.id"/>.
-                Came into the lesson node with id: <value expr="callContext.currentInteraction.data.id"/>.
+            Number of interactions happened: <value expr="callContext.interaction"/>.
             <!--<block name="log>Lesson data: <value expr="callContext.currentInteraction.data.introduction"/></block>-->
             <!--<block name="log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></block>-->
             <!--<block name="log>Lesson? <value expr="callContext.isAtALesson()"/></block>-->

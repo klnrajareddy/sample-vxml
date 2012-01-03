@@ -4,7 +4,6 @@ var CallContext = function(course, metadata) {
         this.currentInteraction = course;
         Course.buildLinks(course);
         this.metadata = metadata;
-				this.id = Math.floor(Math.random() * 1000);
     };
 
     this.goToChild = function(childNumber) {
