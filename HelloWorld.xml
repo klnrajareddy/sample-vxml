@@ -1,9 +1,10 @@
 <vxml version="2.1">
-<form>
+	<form>
+		<goto next="#wish"/>
+	</form>	
+<form id="wish">
 <block>
-<prompt>
 Hello World. This is my first telephone application.
-</prompt>
 </block>
 </form>
 </vxml>
