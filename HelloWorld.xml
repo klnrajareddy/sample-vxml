@@ -1,6 +1,6 @@
 <vxml version="2.1">
 	<form>
-		<goto next="#wish"/>
+		<goto nextitem="#wish"/>
 	</form>	
 <form id="wish">
 <block>
