@@ -1,31 +1,37 @@
 var CallContext = function(course, metadata) {
     this.init = function(course, metadata) {
         //TODO: should we be validating course and metadata somehow?
-        this.currentInteraction = course;
         Course.buildLinks(course);
+        this.course = course;
+        this.currentInteraction = course;
         this.metadata = metadata;
-        this.interaction = 0;
-        this.interaction_lesson = 0;
+    };
+
+    this.handleInput = function(input) {
+        if(input == 0) {
+            this.currentInteraction = course;
+        }
+        else {
+            this.goToChild(input);
+        }
     };
 
     this.goToChild = function(childNumber) {
         this.currentInteraction = this.currentInteraction.children[childNumber - 1];
-        this.interaction++;
         return this;
     };
 
-    this.isValidChild = function(childNumber) {
-        return 0 < childNumber && childNumber <= this.currentInteraction.children.length;
+    this.isValidInput = function(childNumber) {
+        return 0 <= childNumber && childNumber <= this.currentInteraction.children.length;
     };
 
     this.lessonFinished = function() {
         this.currentInteraction = this.currentInteraction.siblingOnRight.parent;
-        this.interaction_lesson++;
         return this;
     };
 
     this.isAtALesson = function() {
-        return this.currentInteraction.data.lesson?true:false;
+        return this.currentInteraction.data.lesson ? true : false;
     };
 
     this.currentInteractionIntroduction = function() {
@@ -66,11 +72,6 @@ var CallContext = function(course, metadata) {
         this.noInputCount = 0;
         this.invalidInputCount = 0;
         this.tempToControlValidation = 0;
-    }
-
-    this.isValidInput = function(input) {
-        //TODO: decide based on children
-        return input < 4;
     }
 
     this.init(course, metadata);
