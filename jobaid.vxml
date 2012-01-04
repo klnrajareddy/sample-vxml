@@ -9,6 +9,7 @@
 
     <script src="./js/course.js"/>
     <script src="./js/call_context.js"/>
+    <script src="./js/prompt_context.js"/>
     <script>
         <![CDATA[
             var callContext = new CallContext(courseData, metaData);
