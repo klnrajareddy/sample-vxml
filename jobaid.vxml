@@ -83,7 +83,9 @@
                 <audio expr="metaData.noInputDisconnectAudio"/>
                 <disconnect/>
             <else/>
-                <audio expr="metaData.noInputRetryAudio"/>
+                <block>
+                    <audio expr="metaData.noInputRetryAudio"/>
+                </block>
                 <reprompt/>
             </if>
         </block>
