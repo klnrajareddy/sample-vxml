@@ -21,6 +21,7 @@
             callContext.resetPromptCounts();
         </script>
         <block>
+            Number of interactions happened: <value expr="callContext.interaction"/> and <value expr="callContext.interaction_lesson"/>.
             <if cond="callContext.isAtALesson()">
                 <goto next="#lesson"/>
             <else/>
@@ -30,6 +31,9 @@
     </form>
 
     <form id="genericLevel">
+        <block>
+            Number of interactions happened: <value expr="callContext.interaction"/> and <value expr="callContext.interaction_lesson"/>.
+        </block>
         <block name="introduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
         </block>
@@ -69,7 +73,7 @@
                         callContext.goToChild(nextLevelSelection);
                     </script>
                     <goto next="#controller"/>
-                    <else/>
+                <else/>
                     <goto nextitem="invalidInputAction"/>
                 </if>
             </filled>
@@ -104,19 +108,16 @@
 
     <form id="lesson">
         <block>
-            <log>Lesson data: <value expr="callContext.currentInteraction.data"/></log>
-            <log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></log>
-            <log>Lesson? <value expr="callContext.isAtALesson()"/></log>
-            <log>Lesson audio: <value expr="callContext.currentInteractionLesson()"/></log>
-            <log>---------------------------------</log>
-        </block>
-        <block>
+            Number of interactions happened: <value expr="callContext.interaction"/> and <value expr="callContext.interaction_lesson"/>.
+            <!--<block name="log>Lesson data: <value expr="callContext.currentInteraction.data.introduction"/></block>-->
+            <!--<block name="log>Lesson children length: <value expr="callContext.currentInteraction.children.length"/></block>-->
+            <!--<block name="log>Lesson? <value expr="callContext.isAtALesson()"/></block>-->
+            <!--<block name="log>Lesson audio: <value expr="callContext.currentInteractionLesson()"/></block>-->
+            <!--<block name="log></block>-->
             <audio expr="callContext.currentInteractionLesson()"/>
-        </block>
         <script>
             callContext.lessonFinished();
         </script>
-        <block>
             <goto next="#controller"/>
         </block>
     </form>
