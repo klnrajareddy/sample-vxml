@@ -1,6 +1,5 @@
 var CallContext = function(course, metadata) {
     this.init = function(course, metadata) {
-        //TODO: should we be validating course and metadata somehow?
         Course.buildLinks(course);
         this.course = course;
         this.currentInteraction = course;
@@ -10,10 +9,9 @@ var CallContext = function(course, metadata) {
     this.handleInput = function(input) {
         if(input == 0) {
             this.currentInteraction = course;
+            return;
         }
-        else {
-            this.goToChild(input);
-        }
+        this.goToChild(input);
     };
 
     this.goToChild = function(childNumber) {
