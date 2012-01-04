@@ -35,3 +35,7 @@ level_2_chapter_1_lesson_1 This is Lesson 1 of Level 2, Chapter 1.
 level_2_chapter_1_lesson_2 This is Lesson 2 of Level 2, Chapter 1.
 level_2_chapter_2_lesson_1 This is Lesson 1 of Level 2, Chapter 1.
 level_2_chapter_2_lesson_2 This is Lesson 2 of Level 2, Chapter 1.
+error.no.input.disconnect Continuing with disconnect since did not hear from you for too long.
+error.no.input.retry Did not hear from you. Try again.
+error.wrong.input.disconnect Continuing with disconnect since got invalid inputs for too many times.
+error.wrong.input.retry Did not enter correct input. Try again.

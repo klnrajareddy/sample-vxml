@@ -3,7 +3,7 @@ output_dir=".."
 rm -f ${output_dir}/*.wav
 
 while read file line; do
-  say -o ${output_dir}/${file}.aac "O. ${line} .O."
+  say -o ${output_dir}/${file}.aac "[[slnc 750]] ${line} [[slnc 750]]"
 done <messages.list
 
 for aac_file in ../*.aac; do
