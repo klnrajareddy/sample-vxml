@@ -35,7 +35,7 @@
     </form>
 
     <form id="genericLevel">
-        <block name="introduction">
+        <block name="introduction" cond="callContext.shouldPlayNextIntroduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
         </block>
 
