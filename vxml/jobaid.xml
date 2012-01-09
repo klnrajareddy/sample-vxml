@@ -36,9 +36,9 @@
 
     <form id="genericLevel">
         <block>
-            <log expr="The current level is: "/>
+            <log expr="'The current level is: '"/>
             <log expr="callContext.currentInteraction.data.introduction"/>
-            <log expr="And the should play intro is: "/>
+            <log expr="'And the should play intro is: '"/>
             <log expr="callContext.shouldPlayNextIntroduction"/>
         </block>
        
