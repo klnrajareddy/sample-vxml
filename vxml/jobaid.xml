@@ -64,7 +64,10 @@
               </grammar>
 
             <noinput>
-                <goto nextitem="noInputAction"/>
+							<block>
+									Added log, got no input.
+								</block>
+								<goto nextitem="noInputAction"/>
             </noinput>
 
             <filled>
