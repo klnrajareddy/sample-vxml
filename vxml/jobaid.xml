@@ -77,7 +77,7 @@
                     </script>
                     <goto next="#controller"/>
                 <else/>
-                    <goto nextitem="invalidInputAction"/>
+                    <goto next="#invalidInput"/>
                 </if>
             </filled>
         </field>
@@ -97,6 +97,9 @@
             </if>
         </block>
 
+    </form>
+
+		<form id="invalidInput">
         <block name="invalidInputAction">
             <script>
                 promptContext.gotInvalidInput();
@@ -109,7 +112,7 @@
                 <goto nextitem="nextLevelSelection"/>
             </if>
         </block>
-    </form>
+		</form>
 
     <form id="lesson">
         <block>
