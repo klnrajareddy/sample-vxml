@@ -93,8 +93,8 @@
                 <disconnect/>
             <else/>
                 <audio expr="promptContext.audioForNoInputRetry()"/>
-                <reprompt/>
-            </if>
+                <goto nextitem="nextLevelSelection"/>
+						</if>
         </block>
 
         <block name="invalidInputAction">
