@@ -35,11 +35,6 @@
     </form>
 
     <form id="genericLevel">
-        <block>
-            <log expr="'The current level is: ' + callContext.currentInteraction.data.introduction"/>
-            <log expr="'And the should play intro is: ' + callContext.shouldPlayNextIntroduction"/>
-        </block>
-       
         <block name="introduction" cond="callContext.shouldPlayNextIntroduction">
            <audio expr="callContext.currentInteractionIntroduction()"/>
         </block>
@@ -49,8 +44,6 @@
                 <audio expr="callContext.currentInteractionMenu()"/>
             </prompt>
             <prompt cond="!callContext.isAtCourseRoot()">
-                <!--<if cond="!callContext.isAtCourseRoot()">-->
-                <!--</if>-->
                 <audio expr="promptContext.audioForOptionToGoToTopLevel()"/>
             </prompt>
             <grammar mode="dtmf" version="1.0" root="root">
