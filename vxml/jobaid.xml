@@ -18,7 +18,7 @@
     </script>
 
     <property name="timeout" value="3s"/>
-    <property name="bargein" value="true"/>
+    <property name="bargein" value="false"/>
     <property name="inputmodes" value="dtmf"/>
 
     <form id="controller">
@@ -87,9 +87,9 @@
                 <audio expr="promptContext.audioForNoInputDisconnect()"/>
                 <disconnect/>
             <else/>
-                <clear/>
+                <clear/>    
                 <audio expr="promptContext.audioForNoInputRetry()"/>
-                <reprompt/>
+                <goto nextitem="nextLevelSelection"/>
             </if>
         </block>
 
