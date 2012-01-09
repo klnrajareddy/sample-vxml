@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vxml version="2.1" xmlns="http://www.w3.org/2001/vxml"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.w3.org/2001/vxml http://www.w3.org/TR/voicexml21/vxml.xsd">
+
+    <!-- TODO: How do we handle if any of the following fetches fail? -->
+    <script src="../dynamic/js/metadata.js"/>
+    <script src="../dynamic/js/course_data.js"/>
+
+    <script src="../js/course.js"/>
+    <script src="../js/call_context.js"/>
+    <script src="../js/prompt_context.js"/>
+    <script>
+        <![CDATA[
+            var callContext = new CallContext(courseData, metaData);
+            var promptContext = new PromptContext(metaData);
+        ]]>
+    </script>
+
+    <property name="timeout" value="3s"/>
+    <property name="bargein" value="false"/>
+    <property name="inputmodes" value="dtmf"/>
+
+    <form id="controller">
+        <script>
+            promptContext.resetCounts();
+        </script>
+        <block>
+            <if cond="callContext.isAtALesson()">
+                <goto next="#lesson"/>
+            <else/>
+                <goto next="#genericLevel"/>
+            </if>
+        </block>
+    </form>
+
+    <form id="genericLevel">
+        <block name="introduction" cond="callContext.shouldPlayNextIntroduction">
+           <audio expr="callContext.currentInteractionIntroduction()"/>
+        </block>
+
+        <field name="nextLevelSelection" >
+            <prompt bargein="true">
+                <audio expr="callContext.currentInteractionMenu()"/>
+            </prompt>
+
+            <grammar mode="dtmf" version="1.0" root="root">
+                <rule id="root">
+                    <one-of>
+                        <item>0</item>
+                        <item>1</item>
+                        <item>2</item>
+                        <item>3</item>
+                        <item>4</item>
+                        <item>5</item>
+                        <item>6</item>
+                        <item>7</item>
+                        <item>8</item>
+                        <item>9</item>
+                        <item>*</item>
+                        <item>#</item>
+                    </one-of>
+                </rule>
+              </grammar>
+
+            <noinput>
+                <goto nextitem="noInputAction"/>
+            </noinput>
+
+            <filled>
+                <if cond="callContext.isValidInput(nextLevelSelection)">
+                    <script>
+                        callContext.handleInput(nextLevelSelection);
+                    </script>
+                    <goto next="#controller"/>
+                <else/>
+                    <goto nextitem="invalidInputAction"/>
+                </if>
+            </filled>
+        </field>
+
+        <block name="noInputAction">
+            <script>
+                promptContext.gotNoInput();
+            </script>
+            <if cond="promptContext.hasExceededMaxNoInputs()">
+                <audio expr="promptContext.audioForNoInputDisconnect()"/>
+                <disconnect/>
+            <else/>
+                <audio expr="promptContext.audioForNoInputRetry()"/>
+                <reprompt/>
+            </if>
+        </block>
+
+        <block name="invalidInputAction">
+            <script>
+                promptContext.gotInvalidInput();
+            </script>
+            <if cond="promptContext.hasExceededMaxInvalidInputs()">
+                <audio expr="promptContext.audioForInvalidInputDisconnect()"/>
+                <disconnect/>
+            <else/>
+                <audio expr="promptContext.audioForInvalidInputRetry()"/>
+                <goto nextitem="nextLevelSelection"/>
+            </if>
+        </block>
+    </form>
+
+    <form id="lesson">
+        <block>
+            <audio expr="callContext.currentInteractionLesson()"/>
+            <script>
+                callContext.lessonFinished();
+            </script>
+            <goto next="#controller"/>
+        </block>
+    </form>
+</vxml>
