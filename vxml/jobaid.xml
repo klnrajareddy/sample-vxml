@@ -43,7 +43,7 @@
             <prompt bargein="true">
                 <audio expr="callContext.currentInteractionMenu()"/>
             </prompt>
-            <prompt>
+            <prompt cond="!callContext.isAtCourseRoot()">
                 <!--<if cond="!callContext.isAtCourseRoot()">-->
                 <!--</if>-->
                 <audio expr="promptContext.audioForOptionToGoToTopLevel()"/>
