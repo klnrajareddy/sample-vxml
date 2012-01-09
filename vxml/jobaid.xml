@@ -17,8 +17,8 @@
         ]]>
     </script>
 
-    <property name="timeout" value="3s"/>
-    <property name="bargein" value="true"/>
+    <property name="timeout" value="8s"/>
+    <property name="bargein" value="false"/>
     <property name="inputmodes" value="dtmf"/>
 
     <form id="controller">
@@ -42,6 +42,9 @@
         <field name="nextLevelSelection" >
             <prompt bargein="true">
                 <audio expr="callContext.currentInteractionMenu()"/>
+                <if cond="!callContext.isAtCourseRoot()">
+                    <audio expr="promptContext.audioForOptionToGoToTopLevel()"/>
+                </if>
             </prompt>
 
             <grammar mode="dtmf" version="1.0" root="root">
