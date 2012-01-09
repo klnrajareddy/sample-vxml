@@ -64,10 +64,8 @@
               </grammar>
 
             <noinput>
-								<block>
 									Added log, got no input.
 		 					  	<goto nextitem="noInputAction"/>
-								</block>
             </noinput>
 
             <filled>
@@ -93,7 +91,7 @@
                 <disconnect/>
             <else/>
                 <audio expr="promptContext.audioForNoInputRetry()"/>
-                <goto nextitem="nextLevelSelection"/>
+								<reprompt/>	
 						</if>
         </block>
 
@@ -104,7 +102,8 @@
             <if cond="promptContext.hasExceededMaxInvalidInputs()">
                 <audio expr="promptContext.audioForInvalidInputDisconnect()"/>
                 <disconnect/>
-            <else/>
+						<else/>
+								<clear/>		
                 <audio expr="promptContext.audioForInvalidInputRetry()"/>
                 <goto nextitem="nextLevelSelection"/>
             </if>
