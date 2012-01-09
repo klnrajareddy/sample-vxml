@@ -83,8 +83,12 @@
             <script>
                 promptContext.gotNoInput();
             </script>
-            <if cond="promptContext.hasExceededMaxNoInputs()">
-                <audio expr="promptContext.audioForNoInputDisconnect()"/>
+						<block>
+							Number of no inputs: <value expr="promptContext.noInputCount"/>.
+							And number of allowed no inputs: <value expr="promptContext.metadata.maximumNoInputCount"/>.
+						</block>
+						<if cond="promptContext.hasExceededMaxNoInputs()">
+								<audio expr="promptContext.audioForNoInputDisconnect()"/>
                 <disconnect/>
             <else/>
                 <audio expr="promptContext.audioForNoInputRetry()"/>
