@@ -64,8 +64,7 @@
               </grammar>
 
             <noinput>
-									Added log, got no input.
-		 					  	<goto nextitem="noInputAction"/>
+                <goto nextitem="noInputAction"/>
             </noinput>
 
             <filled>
@@ -84,15 +83,14 @@
             <script>
                 promptContext.gotNoInput();
             </script>
-							Number of no inputs: <value expr="promptContext.noInputCount"/>.
-							And number of allowed no inputs: <value expr="promptContext.metadata.maximumNoInputCount"/>.
-						<if cond="promptContext.hasExceededMaxNoInputs()">
-								<audio expr="promptContext.audioForNoInputDisconnect()"/>
+            <if cond="promptContext.hasExceededMaxNoInputs()">
+                <audio expr="promptContext.audioForNoInputDisconnect()"/>
                 <disconnect/>
             <else/>
+                <clear/>
                 <audio expr="promptContext.audioForNoInputRetry()"/>
-								<reprompt/>	
-						</if>
+                <reprompt/>
+            </if>
         </block>
 
         <block name="invalidInputAction">
@@ -102,8 +100,7 @@
             <if cond="promptContext.hasExceededMaxInvalidInputs()">
                 <audio expr="promptContext.audioForInvalidInputDisconnect()"/>
                 <disconnect/>
-						<else/>
-								<clear/>		
+            <else/>
                 <audio expr="promptContext.audioForInvalidInputRetry()"/>
                 <goto nextitem="nextLevelSelection"/>
             </if>
