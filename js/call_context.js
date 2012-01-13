@@ -7,8 +7,16 @@ var CallContext = function(course, metadata) {
         this.shouldPlayNextIntroduction = true;
     };
 
+    this.navigateTo = function(shortCode) {
+        for (var i = 0; i < shortCode.length; i++) {
+            if (!this.isValidInput(shortCode.charAt(i))) break;
+            this.handleInput(shortCode.charAt(i));
+        }
+    };
+
+
     this.handleInput = function(input) {
-        if(input == 0) {
+        if (input == 0) {
             this.shouldPlayNextIntroduction = false;
             this.currentInteraction = course;
             return this;
@@ -23,7 +31,6 @@ var CallContext = function(course, metadata) {
         var chapterContainingCurrentLesson = this.currentInteraction.parent;
 
         this.shouldPlayNextIntroduction = (chapterContainingCurrentLesson != nextChapterWhoseMenuIsToBePlayed);
-
         this.currentInteraction = nextChapterWhoseMenuIsToBePlayed;
 
         return this;
@@ -35,7 +42,7 @@ var CallContext = function(course, metadata) {
     };
 
     this.isAtALesson = function() {
-        return this.currentInteraction.data.lesson ? true : false;
+        return this.currentInteraction.data.type == "Lesson";
     };
 
     this.isAtCourseRoot = function() {
@@ -43,15 +50,15 @@ var CallContext = function(course, metadata) {
     };
 
     this.currentInteractionIntroduction = function() {
-        return this.audioFileBase() + this.currentInteraction.data.introduction;
+        return this.audioFileBase() + this.findContentByName("introduction").value;
     };
 
     this.currentInteractionMenu = function() {
-        return this.audioFileBase() + this.currentInteraction.data.menu;
+        return this.audioFileBase() + this.findContentByName("menu").value;
     };
 
     this.currentInteractionLesson = function() {
-        return this.audioFileBase() + this.currentInteraction.data.lesson;
+        return this.audioFileBase() + this.findContentByName("lesson").value;
     };
 
     this.audioFileBase = function() {
@@ -61,7 +68,16 @@ var CallContext = function(course, metadata) {
     this.resetPromptCounts = function() {
         this.noInputCount = 0;
         this.invalidInputCount = 0;
-    }
+    };
 
+    this.findContentByName = function(contentName) {
+        var contents = this.currentInteraction.contents
+        var contentLength = contents.length
+        for(i = 0; i< contentLength; i++){
+            if(contents[i].name == contentName)
+                return contents[i];
+        }
+        return undefined;
+    };
     this.init(course, metadata);
 };

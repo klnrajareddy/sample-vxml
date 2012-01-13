@@ -47,3 +47,11 @@ var PromptContext = function (metadata) {
 
     this.init(metadata);
 };
+
+
+var ShortCode = function () {
+
+    this.getCode = function(baseNumber, phoneNumber) {
+        return(phoneNumber.search(baseNumber) == 0) ? phoneNumber.replace(baseNumber, '') : '';
+    };
+};
