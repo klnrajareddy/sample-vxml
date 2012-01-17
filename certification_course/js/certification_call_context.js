@@ -40,5 +40,9 @@ var CertificationCallContext = function(course, metadata) {
         return this.audioFileBase() + this.findContentByName(contentName).value;
     };
 
+    this.audioFileBase = function() {
+        return this.metadata.audioFileBase;
+    };
+
     this.init(course, metadata);
 };
