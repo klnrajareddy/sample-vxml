@@ -15,11 +15,11 @@ var CertificationCallContext = function(course, metadata) {
     };
 
     this.currentInteractionLesson = function() {
-        return findContentByName("lesson");
+        return this.findContentByName("lesson");
     };
 
     this.currentInteractionMenu = function() {
-        return findContentByName("menu");
+        return this.findContentByName("menu");
     };
 
     this.lessonFinished = function() {
