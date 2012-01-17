@@ -15,11 +15,11 @@ var CertificationCallContext = function(course, metadata) {
     };
 
     this.currentInteractionLesson = function() {
-        return this.findContentByName("lesson");
+        return this.findAudio("lesson");
     };
 
     this.currentInteractionMenu = function() {
-        return this.findContentByName("menu");
+        return this.findAudio("menu");
     };
 
     this.lessonFinished = function() {
@@ -34,6 +34,10 @@ var CertificationCallContext = function(course, metadata) {
                 return contents[i];
         }
         return undefined;
+    };
+
+    this.findAudio = function(contentName) {
+        return this.audioFileBase() + this.findContentByName(contentName).value;
     };
 
     this.init(course, metadata);
