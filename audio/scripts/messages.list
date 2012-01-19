@@ -39,3 +39,12 @@ error.no.input.disconnect Continuing with disconnect since did not hear from you
 error.no.input.retry Did not hear from you. Try again.
 error.wrong.input.disconnect Continuing with disconnect since got invalid inputs for too many times.
 error.wrong.input.retry Did not enter correct input. Try again.
+chapter_1_menu This is the menu for chapter 1. Press 1 or 2.
+chapter_2_menu This is the menu for chapter 2. Press 1 or 2.
+chapter_3_menu This is the menu for chapter 3. Press 1 or 2.
+chapter_4_menu This is the menu for chapter 4. Press 1 or 2.
+chapter_5_menu This is the menu for chapter 5. Press 1 or 2.
+chapter_6_menu This is the menu for chapter 6. Press 1 or 2.
+chapter_7_menu This is the menu for chapter 7. Press 1 or 2.
+chapter_8_menu This is the menu for chapter 8. Press 1 or 2.
+chapter_9_menu This is the menu for chapter 9. Press 1 or 2.
